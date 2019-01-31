@@ -8,4 +8,4 @@ Twitter: @Rapt00rVF
 <br>
 Telegram: @rapt00r
 <br>
-Mail: rapt00rr[at]protonmail[dot]com
+Mail: rapt00rr [at] protonmail [dot] com
