@@ -8,36 +8,31 @@ img: banner.png
 <p align="justify">
 Olá, me chamo Vitor Fernandes a.k.a rapt00r, sou graduando em sistemas de informação pela UFPB e atualmente estou no 6º período do curso (01/2019). Faço parte de um grupo de estudos que criei com mais 3 amigos dentro da universidade, o EthicalHackers UFPB, discutimos temas sobre Ethical Hacking (really?? :O), Linux, Programação, Segurança da Informação e afins. O link para a página do grupo está no rodapé do blog, curte lá que ajuda bastante :)
 </p>
+
 <p align="justify">
 Neste post irei falar um pouco sobre uma pesquisa pessoal que tinha como objetivo realizar testes de intrusão e documentar as vulnerabilidades encontradas no Sistema Integrado de Gestão de Atividades Acadêmicas (Sigaa) que é bastante utilizado em universidades públicas brasileiras (inclusive na minha). Esta pesquisa é de minha autoria, ou seja, não fui obrigado e nem muito menos pago para realizar os testes e documentar os resultados, tudo foi feito por livre e espontânea vontade e a documentação foi escrita com a ajuda de um professor da UFPB. Este post tem como objetivo falar sobre as vulnerabilidades encontradas, sendo bem objetivo para tornar a leitura menos cansativa. Os detalhes completos você pode encontrar no relatório que está disponível para download no final do post.
 </p>
-<br>
-<br>
+
 <p align="justify">
 Bom de início, posso falar que o Sigaa é um sistema utilizado para o controle de atividades acadêmicas (ver notas, se cadastrar em disciplinas, em projetos, bolsas etc) por várias universidades e instituições públicas brasileiras. Procurei por quantas instituições utilizavam o sistema e encontrei um total de 42 instituições, compostas por institutos e universidades (podem haver mais) utilizando a dork: inurl:"sigaa/public/" e estão listadas abaixo:
 </p>
-<br>
-<br>
+
 <p align="justify">
 <b>UFC, UFRN, UFMA, UFERSA, UFPB, UFS, UNILA, CEFETMG, UFAL, UNIFAP, UFABC, UFRA, UNIR, UFOPA, IFC, UFPI, UFRR, UNIFEI, UEMA, UFPA, UFOB, IFPA, UFRB, UFG, IFRJ, UFLA, IFFARROUPILHA, UFSB, IFBAIANO, UNIFESSPA, UFRRJ, UFSJ, UNILAB, IFAM, UFCA, IFSC, IFSUDESTEMG, IFRS, ITVDS, IFPR, IFAC, IFAL</b>
 </p>
-<br>
-<br>
+
 <p align="justify">
 Qual o motivo de estar tornando este relatório público? É simples, a segurança da informação ainda não é tão importante no nosso país, e tive que realizar essa atitude (infelizmente) para que houvesse uma maior preocupação por parte dos desenvolvedores do sistema.
 </p>
-<br>
-<br>
+
 <p align="justify">
 Quero deixar claro que meu objetivo não é denegrir a imagem de alguma instituição ou dos desenvolvedores, mas sim poder contribuir com a segurança do sistema bem como também contribuir para o cenário de Segurança da Informação no país. Espero que este post seja útil e que não haja consequências futuras. 
 </p>
-<br>
-<br>
+
 <p align="justify">
 Os desenvolvedores já foram avisados previamente das falhas e sobre a publicação do relatório. A seguir, uma breve timeline de como foi desde o início até agora:
 </p>
-<br>
-<br>
+
 <p align="justify">
 <i>
 05/2018 -> Comecei os testes no Sigaa da UFPB e encontrei boa parte das falhas. <br>
@@ -55,21 +50,17 @@ Os desenvolvedores já foram avisados previamente das falhas e sobre a publicaç
 2019 -> Processos? Espero que não!
 </i>
 </p>
-<br>
-<br>
+
 <p align="justify">
 Agora é parte que interessa para todos (creio eu), quais as falhas encontradas, como consegui encontrar e etc. So, let's go!
 </p>
-<br>
-<br>
+
 <p align="justify">
 As falhas encontradas no sigaa vão de nível médio ao crítico (me baseei na OWASP para catalogação do nível de criticidade das vulnerabilidades) e estão catalogadas da seguinte forma:
 </p>
-<br>
-<br>
+
 <img src="../images/vulnerabilidades_sigaa.png">
-<br>
-<br>
+
 <p align="justify">
 Como podem notar encontrei vulnerabilidades de SQL Injection, XSS (Self e Stored) e IDOR. Falarei agora um pouco mais sobre cada uma delas e quais as consequências que cada um trouxe dentro do sistema.
 </p>
