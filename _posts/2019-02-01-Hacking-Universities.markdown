@@ -99,6 +99,7 @@ A segunda foi nos arquivos enviados pelos professores na disciplina, com esta fa
 <p align="justify">
 A terceira foi no acesso das turmas, onde eu conseguia APENAS acessar as turmas, não era possível fazer muita coisa de relevante. Ao fazer a requisição, um parâmetro contendo o ID da turma era passado, ao alterar este valor, a turma referente ao valor passado era acessada. Não gravei vídeo pois não achei muito relevante :)
 </p>
+
 <br>
 
 <p align="justify">
@@ -117,8 +118,6 @@ Se você estuda Segurança da Informação, já deve ter ouvido nesse carinha :)
 <p align="justify">
 Encontrei 3 Self-XSS e 2 Stored, cataloguei como reflected, mas foi errado, perdão pelo erro.
 </p>
-
-<br>
 
 <p align="justify">
 <h3>Self-XSS</h3>
