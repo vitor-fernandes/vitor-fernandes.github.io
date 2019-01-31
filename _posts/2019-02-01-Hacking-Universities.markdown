@@ -100,8 +100,6 @@ A segunda foi nos arquivos enviados pelos professores na disciplina, com esta fa
 A terceira foi no acesso das turmas, onde eu conseguia APENAS acessar as turmas, não era possível fazer muita coisa de relevante. Ao fazer a requisição, um parâmetro contendo o ID da turma era passado, ao alterar este valor, a turma referente ao valor passado era acessada. Não gravei vídeo pois não achei muito relevante :)
 </p>
 
-<br>
-
 <p align="justify">
 <h2>XSS (Cross-Site Scripting)</h2>
 Passando agora para as falhas de <b>XSS (Cross-Site Scripting)</b>
@@ -136,8 +134,6 @@ O segundo local que encontrei foi na página de recuperação do código de conf
 O terceiro local foi na página de consulta da situação de determinado bolsista, nessa parte a única coisa que muda entre os exemplos anteriores é o campo, pois agora o payload javascript deve ser injetado no campo de matrícula.
 </p>
 
-<br>
-
 <p align="justify">
 <h3>XSS Stored</h3>
 </p>
@@ -154,7 +150,6 @@ O primeiro XSS Stored se encontra no sistema de e-mail (ele ataca novamente). Ao
 O segundo estava no fórum do curso. Ao cadastrar um novo tópico no fórum com um título contendo o payload javascript, ao abrir-lo, o browser do usuário executaria o código contido no título do tópico. Esse XSS me permitia realizar o roubo de sessões de outros usuários. O vídeo da PoC se encontra abaixo:
 </p>
 <iframe width="560" height="315" src="https://www.youtube.com/embed/TiH67yflOj8" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-<br>
 
 <p align="justify">
 <h2>SQL Injection</h2>
