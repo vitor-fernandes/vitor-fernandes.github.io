@@ -31,18 +31,18 @@ Os desenvolvedores já foram avisados previamente das falhas e sobre a publicaç
 <br>
 <br>
 <i>
-05/2018 -> Comecei os testes no Sigaa da UFPB e encontrei boa parte das falhas.
-12/07/2018 -> Documentei as falhas e o professor enviou o relatório completo para o STI (Equipe de TI da UFPB).
-24/07/2018 -> Envio e-mail pedindo alguma atualização sobre a correção das falhas, mas não obtive nenhuma resposta
-30/07/2018 -> Percebi que apenas a falha de SQL Injection tinha sido corrigida, então enviei outro e-mail perguntando sobre a correção das outras vulnerabilidades.
-30/07/2018 -> Recebo resposta do professor falando que as falhas fizeram muito ruído, e causou indisponibilidade do Sigaa. Também foi citada uma futura parceria com o STI e o Ethical Hackers.
-12/11/2018 -> Envio o relatório para a empresa desenvolvedora do Sigaa. Mas não obtive nenhuma resposta
-28/12/2018 -> Envio um e-mail para o STI avisando sobre a notícia que saiu no G1 sobre o aluno que explorou uma das vulnerabilidades catalogadas no relatório.
-28/12/2018 -> Envio novamente o relatório para a empresa desenvolvedora do Sigaa, dessa vez obtive a resposta de confirmação.
-04/01/2019 -> Enviei um e-mail para a empresa desenvolvedora do Sigaa e o professor para deixar claro os objetivos que foram passados ao entregar o relatório bem como um prazo de até o dia 31/01/2019 até que o relatório se tornasse público.
-14/01/2019 -> Envio e-mail pedindo a versão do sistema para requisitar CVE's de algumas falhas. Sem resposta.
-22/01/2019 -> Envio e-mail pedindo atualizações sobre a corração das vulnerabilidades. Sem resposta.
-30/01/2019 -> Envio e-maul avisando que o tempo que dei para corrigir as vulnerabilidades acabou e irei publicar o relatório.
+05/2018 -> Comecei os testes no Sigaa da UFPB e encontrei boa parte das falhas. <br>
+12/07/2018 -> Documentei as falhas e o professor enviou o relatório completo para o STI (Equipe de TI da UFPB).<br>
+24/07/2018 -> Envio e-mail pedindo alguma atualização sobre a correção das falhas, mas não obtive nenhuma resposta.<br>
+30/07/2018 -> Percebi que apenas a falha de SQL Injection tinha sido corrigida, então enviei outro e-mail perguntando sobre a correção das outras vulnerabilidades.<br>
+30/07/2018 -> Recebo resposta do professor falando que as falhas fizeram muito ruído, e causou indisponibilidade do Sigaa. Também foi citada uma futura parceria com o STI e o Ethical Hackers.<br>
+12/11/2018 -> Envio o relatório para a empresa desenvolvedora do Sigaa. Mas não obtive nenhuma resposta.<br>
+28/12/2018 -> Envio um e-mail para o STI avisando sobre a notícia que saiu no G1 sobre o aluno que explorou uma das vulnerabilidades catalogadas no relatório.<br>
+28/12/2018 -> Envio novamente o relatório para a empresa desenvolvedora do Sigaa, dessa vez obtive a resposta de confirmação.<br>
+04/01/2019 -> Enviei um e-mail para a empresa desenvolvedora do Sigaa e o professor para deixar claro os objetivos que foram passados ao entregar o relatório bem como um prazo de até o dia 31/01/2019 até que o relatório se tornasse público.<br>
+14/01/2019 -> Envio e-mail pedindo a versão do sistema para requisitar CVE's de algumas falhas. Sem resposta. <br>
+22/01/2019 -> Envio e-mail pedindo atualizações sobre a corração das vulnerabilidades. Sem resposta.<br>
+30/01/2019 -> Envio e-maul avisando que o tempo que dei para corrigir as vulnerabilidades acabou e irei publicar o relatório.<br>
 2019 -> Processos? Espero que não!
 </i>
 <br>
