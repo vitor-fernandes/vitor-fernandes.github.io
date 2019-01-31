@@ -111,6 +111,7 @@ O primeiro XSS Stored se encontra no sistema de e-mail (ele ataca novamente). Ao
 <br>
 <br>
 O segundo estava no fórum do curso. Ao cadastrar um novo tópico no fórum com um título contendo o payload javascript, ao abrir-lo, o browser do usuário executaria o código contido no título do tópico. Esse XSS me permitia realizar o roubo de sessões de outros usuários. O vídeo da PoC se encontra abaixo:
+<br>
 <iframe width="560" height="315" src="https://www.youtube.com/embed/TiH67yflOj8" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 <br>
 <h2>SQL Injection</h2>
