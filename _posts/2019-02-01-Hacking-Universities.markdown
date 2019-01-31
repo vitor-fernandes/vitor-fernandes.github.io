@@ -87,10 +87,14 @@ A primeira foi no sistema de email, onde eu conseguia ler todos os e-mails envia
 </p>
 <iframe width="560" height="315" src="https://www.youtube.com/embed/8CZ4sQW7yec" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
+<br>
+
 <p align="justify">
 A segunda foi nos arquivos enviados pelos professores na disciplina, com esta falha eu conseguia baixar todos os arquivos que estavam armazenados no servidor, desde fotos de perfil até documentos de outros usuários e da própria universidade. Ao fazer uma requisição, era passado um parâmetro com um valor que identificava o documento, ao mudar este valor e enviar ao servidor o documento referente ao valor era retornado e baixado. O vídeo da PoC se encontra abaixo:
 </p>
 <iframe width="560" height="315" src="https://www.youtube.com/embed/aS8-g1K_CLQ" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+<br>
 
 <p align="justify">
 A terceira foi no acesso das turmas, onde eu conseguia APENAS acessar as turmas, não era possível fazer muita coisa de relevante. Ao fazer a requisição, um parâmetro contendo o ID da turma era passado, ao alterar este valor, a turma referente ao valor passado era acessada. Não gravei vídeo pois não achei muito relevante :)
@@ -109,11 +113,12 @@ Se você estuda Segurança da Informação, já deve ter ouvido nesse carinha :)
 <p align="justify">
 "Essa vulnerabilidade permite um usuário injetar códigos JS (JavaScript) maliciosos em determinado campo de texto de uma página e dependendo do seu tipo, esse código será mostrado para outros usuários."
 </p>
-<br>
-<br>
+
 <p align="justify">
 Encontrei 3 Self-XSS e 2 Stored, cataloguei como reflected, mas foi errado, perdão pelo erro.
 </p>
+
+<br>
 
 <p align="justify">
 <h3>Self-XSS</h3>
@@ -131,6 +136,8 @@ O segundo local que encontrei foi na página de recuperação do código de conf
 <p align="justify">
 O terceiro local foi na página de consulta da situação de determinado bolsista, nessa parte a única coisa que muda entre os exemplos anteriores é o campo, pois agora o payload javascript deve ser injetado no campo de matrícula.
 </p>
+
+<br>
 
 <p align="justify">
 <h3>XSS Stored</h3>
