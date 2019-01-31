@@ -9,7 +9,6 @@ img: banner.png
 Olá, me chamo Vitor Fernandes a.k.a rapt00r, sou graduando em sistemas de informação pela UFPB e atualmente estou no 6º período do curso (01/2019). Faço parte de um grupo de estudos que criei com mais 3 amigos dentro da universidade, o EthicalHackers UFPB, discutimos temas sobre Ethical Hacking (really?? :O), Linux, Programação, Segurança da Informação e afins. O link para a página do grupo está no rodapé do blog, curte lá que ajuda bastante :)
 </p>
 <br>
-<br>
 <p align="justify">
 Neste post irei falar um pouco sobre uma pesquisa pessoal que tinha como objetivo realizar testes de intrusão e documentar as vulnerabilidades encontradas no Sistema Integrado de Gestão de Atividades Acadêmicas (Sigaa) que é bastante utilizado em universidades públicas brasileiras (inclusive na minha). Esta pesquisa é de minha autoria, ou seja, não fui obrigado e nem muito menos pago para realizar os testes e documentar os resultados, tudo foi feito por livre e espontânea vontade e a documentação foi escrita com a ajuda de um professor da UFPB. Este post tem como objetivo falar sobre as vulnerabilidades encontradas, sendo bem objetivo para tornar a leitura menos cansativa. Os detalhes completos você pode encontrar no relatório que está disponível para download no final do post.
 </p>
