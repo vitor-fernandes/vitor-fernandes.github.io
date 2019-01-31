@@ -9,10 +9,7 @@ img: banner.png
 Olá, me chamo Vitor Fernandes a.k.a rapt00r, sou graduando em sistemas de informação pela UFPB e atualmente estou no 6º período do curso (01/2019). Faço parte de um grupo de estudos que criei com mais 3 amigos dentro da universidade, o Ethicalhackers UFPB, discutimos temas sobre Ethical Hacking (really?? :O), Linux, Programação, Segurança da Informação e afins. O link para a página do grupo está no rodapé do blog, curte lá que ajuda bastante :)
 <br>
 <br>
-Neste post irei falar um pouco sobre uma pesquisa pessoal que tinha como objetivo realizar testes de intrusão e documentar as vulnerabilidades encontradas no Sistema Integrado de Gestão de Atividades Acadêmicas (Sigaa) que é bastante utilizado em universidades públicas brasileiras (inclusive na minha). Esta pesquisa é de minha autoria, ou seja, não fui obrigado e nem muito menos pago para realizar os testes e documentar os resultados, tudo foi feito por livre e expontânea vontade e a documentação foi escrita com a ajuda de um professor da UFPB. O relatório final sobre as vulnerabilidades está disponível no para download no final do post.
-<br>
-<br>
-Este post tem como objetivo falar sobre as vulnerabilidades encontradas, sendo objetivo para tornar a leitura menos cansativa. Os detalhes completos você pode encontrar no relatório :)
+Neste post irei falar um pouco sobre uma pesquisa pessoal que tinha como objetivo realizar testes de intrusão e documentar as vulnerabilidades encontradas no Sistema Integrado de Gestão de Atividades Acadêmicas (Sigaa) que é bastante utilizado em universidades públicas brasileiras (inclusive na minha). Esta pesquisa é de minha autoria, ou seja, não fui obrigado e nem muito menos pago para realizar os testes e documentar os resultados, tudo foi feito por livre e expontânea vontade e a documentação foi escrita com a ajuda de um professor da UFPB. Este post tem como objetivo falar sobre as vulnerabilidades encontradas, sendo bem objetivo para tornar a leitura menos cansativa. Os detalhes completos você pode encontrar no relatório que está disponível para download no final do post.
 <br>
 <br>
 Bom de início, posso falar que o Sigaa é um sistema utilizado para o controle de atividades acadêmicas (ver notas, se cadastrar em disciplinas, em projetos, bolsas etc) por várias universidades e instituições públicas brasileiras. Procurei por quantas instituições utilizavam o sistema e encontrei um total de 42 instituições, compostas por institutos e universidades (podem haver mais) utilizando a dork: inurl:"sigaa/public/" e estão listadas abaixo:
@@ -70,15 +67,15 @@ Comecarei pelas falhas de <b>IDOR</b>. Se você não conhece essa falha eu falar
 Encontrei IDOR's em diferentes locais do sistema:
 <br>
 <br>
-A primeira foi no sistema de email, onde eu conseguia ler todos os e-mails enviados no Sigaa. Percebi que ao fazer uma requisição para ler algum e-mail, era passado um parâmetro chamado idMensagem. Ao refazer a requisição e alterando o valor no campo idMensagem, o e-mail retornado era o que correspondia ao valor passado no campo idMensagem, me possibilitando de ler todos os e-mails enviados no sistema. O vídeo da PoC se encontra abaixo:
+A primeira foi no sistema de email, onde eu conseguia ler todos os e-mails enviados no Sigaa. Percebi que ao fazer uma requisição para ler algum e-mail, era passado um parâmetro que continha uma referência para o e-mail. Ao fazer uma requisição alterando o valor desse parâmetro, o e-mail referente ao valor passado era aberto. O vídeo da PoC se encontra abaixo:
 <iframe width="560" height="315" src="https://www.youtube.com/embed/8CZ4sQW7yec" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 <br>
 <br>
-A segunda foi nos arquivos enviados pelos professores na disciplina, com esta falha eu conseguia baixar todos os arquivos que estavam armazenados no servidor, desde fotos de perfil até documentos de outros usuários e da própria universidade. Percebi que ao fazer uma requisição para baixar um arquivo, era passado um parâmetro chamado id que era a referência do arquivo no servidor. Ao refazer a requisição, eu alterei o valor do parâmetro id e ao enviar, eu consegui baixar outro documento ao qual não me pertencia. O vídeo da PoC se encontra abaixo:
+A segunda foi nos arquivos enviados pelos professores na disciplina, com esta falha eu conseguia baixar todos os arquivos que estavam armazenados no servidor, desde fotos de perfil até documentos de outros usuários e da própria universidade. Ao fazer uma requisição, era passado um parâmetro com um valor que identificava o documento, ao mudar este valor e enviar ao servidor o document referente ao valor era retornado e baixado. O vídeo da PoC se encontra abaixo:
 <iframe width="560" height="315" src="https://www.youtube.com/embed/aS8-g1K_CLQ" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 <br>
 <br>
-A terceira foi no acesso das turmas, onde eu conseguia APENAS acessar as turmas, não era possível fazer muita coisa de relevante. Percebi que ao fazer uma requisição era passado um valor no parâmetro idTurma, ao refazer a requisição passando um valor diferente nesse parâmetro, a turma referente ao valor passado era retornada e consequentemente acessada por mim, mesmo se eu não estivesse cadastrado.
+A terceira foi no acesso das turmas, onde eu conseguia APENAS acessar as turmas, não era possível fazer muita coisa de relevante. Ao fazer a requisição, um parâmetro contendo o ID da turma era passado, ao alterar este valor, a turma referente ao valor passado era acessada. Não gravei vídeo pois não achei muito relevante :)
 <br>
 <br>
 <h2>XSS (Cross-Site Scripting)</h2>
@@ -91,7 +88,6 @@ Se você estuda Segurança da Informação, já deve ter ouvido nesse carinha :)
 <br>
 <br>
 Encontrei 3 Self-XSS e 2 Stored, cataloguei como reflected, mas foi errado, perdão pelo erro.
-<br>
 <br>
 <h3>Self-XSS</h3>
 Falando sobre os <b>Self-XSS</b>, eram basicamente em locais onde a entrada do usuário era refletida diretamente no código sem nenhum tipo de sanitização.
@@ -116,7 +112,6 @@ O primeiro XSS Stored se encontra no sistema de e-mail (ele ataca novamente). Ao
 <br>
 O segundo estava no fórum do curso. Ao cadastrar um novo tópico no fórum com um título contendo o payload javascript, ao abrir-lo, o browser do usuário executaria o código contido no título do tópico. Esse XSS me permitia realizar o roubo de sessões de outros usuários. O vídeo da PoC se encontra abaixo:
 <iframe width="560" height="315" src="https://www.youtube.com/embed/TiH67yflOj8" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-<br>
 <br>
 <h2>SQL Injection</h2>
 Agora pra fechar com chave de ouro, vamos falar sobre as falhas de <b>SQL Injection!!</b>
@@ -147,3 +142,6 @@ Bom pessoal, é isso. Espero que este relatório possa ajudar todos aqueles que 
 <br>
 <br>
 Para finalizar quero deixar claro que nenhum dado foi vazado ou repassado para outras pessoas e o relatório está disponível apenas a partir da data de hoje (31/01/2019).
+<br>
+<br>
+<b>Como prometido, o relatório poderá ser baixado através do link: <a href="https://drive.google.com/file/d/1ZpQX8tLkupvU4Q7m4qSvbTTjK2e00rAp/view?usp=sharing" target="_blank">Sigaa - Relatório Completo</a></>
