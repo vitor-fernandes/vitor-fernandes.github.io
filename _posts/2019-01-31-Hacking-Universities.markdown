@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Hackeando Instituições Públicas Brasileiras"
+title:  "Hackeando Instituições de Ensino no Brasil"
 date:   2019-01-31 16:10:00
 categories: All
 img: banner.png
