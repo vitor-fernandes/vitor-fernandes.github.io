@@ -64,7 +64,6 @@ As falhas encontradas no sigaa vão de nível médio ao crítico (me baseei na O
 <p align="justify">
 Como podem notar encontrei vulnerabilidades de SQL Injection, XSS (Self e Stored) e IDOR. Falarei agora um pouco mais sobre cada uma delas e quais as consequências que cada um trouxe dentro do sistema.
 </p>
-<br>
 
 <p align="justify">
 <h2>IDOR (Insecure Direct Object Reference)</h2>
