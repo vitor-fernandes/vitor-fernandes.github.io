@@ -52,10 +52,11 @@ Agora é parte que interessa para todos (creio eu), quais as falhas encontradas,
 <br>
 As falhas encontradas no sigaa vão de nível médio ao crítico (me baseei na OWASP para catalogação do nível de criticade das vulnerabilidades) e estão catalogadas da seguinte forma:
 <br>
+<br>
 <img src="../images/vulnerabilidades_sigaa.png">
 <br>
-Como podem notar encontrei vulnerabilidades de SQL Injection, XSS (Self e Stored) e IDOR. Falarei agora um pouco mais sobre cada uma delas e quais as consequências que cada um trouxe dentro do sistema.
 <br>
+Como podem notar encontrei vulnerabilidades de SQL Injection, XSS (Self e Stored) e IDOR. Falarei agora um pouco mais sobre cada uma delas e quais as consequências que cada um trouxe dentro do sistema.
 <br>
 <br>
 <h2>IDOR (Insecure Direct Object Reference)</h2>
@@ -78,8 +79,6 @@ A segunda foi nos arquivos enviados pelos professores na disciplina, com esta fa
 <br>
 <br>
 A terceira foi no acesso das turmas, onde eu conseguia APENAS acessar as turmas, não era possível fazer muita coisa de relevante. Percebi que ao fazer uma requisição era passado um valor no parâmetro idTurma, ao refazer a requisição passando um valor diferente nesse parâmetro, a turma referente ao valor passado era retornada e consequentemente acessada por mim, mesmo se eu não estivesse cadastrado.
-<br>
-<br>
 <br>
 <br>
 <h2>XSS (Cross-Site Scripting)</h2>
@@ -107,7 +106,6 @@ O segundo local que encontrei foi na página de recuperação do código de conf
 O terceiro local foi na página de consulta da situação de determinado bolsista, nessa parte a única coisa que muda entre os exemplos anteriores é o campo, pois agora o payload javascript deve ser injetado no campo de matrícula.
 <br>
 <br>
-<br>
 <h3>XSS Stored</h3>
 <br>
 Em relação aos XSS Stored, um deles (XSS stored no fórum do curso) me permitia fazer o hijacking de sessão, ou seja, eu podia capturar a sessão de outros usuários, era necessário apenas que ele acessasse a postagem no fórum do curso.
@@ -118,7 +116,6 @@ O primeiro XSS Stored se encontra no sistema de e-mail (ele ataca novamente). Ao
 <br>
 O segundo estava no fórum do curso. Ao cadastrar um novo tópico no fórum com um título contendo o payload javascript, ao abrir-lo, o browser do usuário executaria o código contido no título do tópico. Esse XSS me permitia realizar o roubo de sessões de outros usuários. O vídeo da PoC se encontra abaixo:
 <iframe width="560" height="315" src="https://www.youtube.com/embed/TiH67yflOj8" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-<br>
 <br>
 <br>
 <h2>SQL Injection</h2>
@@ -146,7 +143,7 @@ Foi então que vi que realmente estava vulnerável, então decidi capturar a req
 Bom pessoal, é isso. Espero que este relatório possa ajudar todos aqueles que gostam da área de Segurança da Informação. Espero que possa servir como base para trabalhos futuros e que possa ser utilizado para aprendizado.
 <br>
 <br>
-Lembre-se seja éticos, tenha princípios.
+<b>Lembre-se seja ético, tenha princípios.</b>
 <br>
 <br>
 Para finalizar quero deixar claro que nenhum dado foi vazado ou repassado para outras pessoas e o relatório está disponível apenas a partir da data de hoje (31/01/2019).
