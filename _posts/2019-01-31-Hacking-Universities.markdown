@@ -182,7 +182,7 @@ Foi então que vi que realmente estava vulnerável, então decidi capturar a req
 <br>
 
 <p align="justify">
-Bom pessoal, é isso. Espero que este relatório possa ajudar todos aqueles que gostam da área de Segurança da Informação. Espero que possa servir como base para trabalhos futuros e que possa ser utilizado para aprendizado.
+Bom pessoal, é isso. Espero que este relatório possa ajudar todos aqueles que gostam da área de Segurança da Informação. Espero que possa servir como base para trabalhos futuros e que possa ser utilizado para aprendizado. Irei utilizar as falhas mais graves para tentar ganhar algumas CVE's e poder concretizar ainda mais minha pesquisa.
 </p>
 
 <p align="justify">
