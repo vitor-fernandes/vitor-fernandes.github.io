@@ -57,13 +57,16 @@ As falhas encontradas no sigaa vão de nível médio ao crítico (me baseei na O
 Como podem notar encontrei vulnerabilidades de SQL Injection, XSS (Self e Stored) e IDOR. Falarei agora um pouco mais sobre cada uma delas e quais as consequências que cada um trouxe dentro do sistema.
 <br>
 <br>
+<br>
+<h2>IDOR (Insecure Direct Object Reference)</h2>
+<br>
 Comecarei pelas falhas de <b>IDOR</b>. Se você não conhece essa falha eu falarei um pouco mais sobre ela agora!
 <br>
 <br>
 "Insecure Direct Object Reference (IDOR) ocorre quando um aplicativo expõe uma referência a um objeto de implementação interno. Usando esse caminho, ele revela o identificador real e o formato / padrão usado do elemento no lado de back-end de armazenamento."
 <br>
 <br>
-Encontrei 3 IDOR em diferentes locais do sistema:
+Encontrei IDOR's em diferentes locais do sistema:
 <br>
 <br>
 A primeira foi no sistema de email, onde eu conseguia ler todos os e-mails enviados no Sigaa. Percebi que ao fazer uma requisição para ler algum e-mail, era passado um parâmetro chamado idMensagem. Ao refazer a requisição e alterando o valor no campo idMensagem, o e-mail retornado era o que correspondia ao valor passado no campo idMensagem, me possibilitando de ler todos os e-mails enviados no sistema. O vídeo da PoC se encontra abaixo:
@@ -73,11 +76,14 @@ A primeira foi no sistema de email, onde eu conseguia ler todos os e-mails envia
 A segunda foi nos arquivos enviados pelos professores na disciplina, com esta falha eu conseguia baixar todos os arquivos que estavam armazenados no servidor, desde fotos de perfil até documentos de outros usuários e da própria universidade. Percebi que ao fazer uma requisição para baixar um arquivo, era passado um parâmetro chamado id que era a referência do arquivo no servidor. Ao refazer a requisição, eu alterei o valor do parâmetro id e ao enviar, eu consegui baixar outro documento ao qual não me pertencia. O vídeo da PoC se encontra abaixo:
 <iframe width="560" height="315" src="https://www.youtube.com/embed/aS8-g1K_CLQ" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 <br>
+<br>
 A terceira foi no acesso das turmas, onde eu conseguia APENAS acessar as turmas, não era possível fazer muita coisa de relevante. Percebi que ao fazer uma requisição era passado um valor no parâmetro idTurma, ao refazer a requisição passando um valor diferente nesse parâmetro, a turma referente ao valor passado era retornada e consequentemente acessada por mim, mesmo se eu não estivesse cadastrado.
 <br>
 <br>
 <br>
-Passando agora para as falhas de XSS (Cross-Site Scripting)
+<br>
+<h2>XSS (Cross-Site Scripting)</h2>
+Passando agora para as falhas de <b>XSS (Cross-Site Scripting)</b>
 <br>
 <br>
 Se você estuda Segurança da Informação, já deve ter ouvido nesse carinha :), mas se ainda não conhece deixarei uma pequena explicação sobre:
@@ -88,7 +94,8 @@ Se você estuda Segurança da Informação, já deve ter ouvido nesse carinha :)
 Encontrei 3 Self-XSS e 2 Stored, cataloguei como reflected, mas foi errado, perdão pelo erro.
 <br>
 <br>
-Falando sobre os Self-XSS, eram basicamente em locais onde a entrada do usuário era refletida diretamente no código sem nenhum tipo de sanitização.
+<h3>Self-XSS</h3>
+Falando sobre os <b>Self-XSS</b>, eram basicamente em locais onde a entrada do usuário era refletida diretamente no código sem nenhum tipo de sanitização.
 <br>
 <br>
 O primeiro local que encontrei o Self-XSS foi na página de recuperação de login. Nessa página era pedido o e-mail do usuário no qual era refletido no código da página. Aqui era basicamente inserir um payload javascript qualquer que ele seria executado :)
@@ -100,6 +107,9 @@ O segundo local que encontrei foi na página de recuperação do código de conf
 O terceiro local foi na página de consulta da situação de determinado bolsista, nessa parte a única coisa que muda entre os exemplos anteriores é o campo, pois agora o payload javascript deve ser injetado no campo de matrícula.
 <br>
 <br>
+<br>
+<h3>XSS Stored</h3>
+<br>
 Em relação aos XSS Stored, um deles (XSS stored no fórum do curso) me permitia fazer o hijacking de sessão, ou seja, eu podia capturar a sessão de outros usuários, era necessário apenas que ele acessasse a postagem no fórum do curso.
 <br>
 <br>
@@ -110,6 +120,8 @@ O segundo estava no fórum do curso. Ao cadastrar um novo tópico no fórum com 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/TiH67yflOj8" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 <br>
 <br>
+<br>
+<h2>SQL Injection</h2>
 Agora pra fechar com chave de ouro, vamos falar sobre as falhas de <b>SQL Injection!!</b>
 <br>
 <br>
