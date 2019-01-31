@@ -144,5 +144,5 @@ Bom pessoal, é isso. Espero que este relatório possa ajudar todos aqueles que 
 Para finalizar quero deixar claro que nenhum dado foi vazado ou repassado para outras pessoas e o relatório está disponível apenas a partir da data de hoje (31/01/2019).
 <br>
 <br>
-<b>Como prometido, o relatório poderá ser baixado através do link: <a href="https://drive.google.com/file/d/1ZpQX8tLkupvU4Q7m4qSvbTTjK2e00rAp/view?usp=sharing" target="_blank">Sigaa - Relatório Completo</a></>
+<b>Como prometido, o relatório poderá ser baixado através do link: <a href="https://drive.google.com/file/d/1ZpQX8tLkupvU4Q7m4qSvbTTjK2e00rAp/view?usp=sharing" target="_blank">Sigaa - Relatório Completo</a></b>
 </p>
