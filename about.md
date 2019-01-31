@@ -11,6 +11,7 @@ My name is Vitor Fernandes a.k.a "rapt00r"
 <br>
 My interests are in: Web Application Security, Penetration Testing, Bug Bounty and Code Review.
 <br>
+I create a study ground with more 3 friends on my university to we discute about Hacking, Privacity, Linux, Programming, Network Computers etc called "EthicalHackers UFPB". The link to the page group you can find on the bottom of the page.
 <br>
 I'm a newbie Bug Hunter and search bugs in some plataforms such as Hackerone, Bugcrowd and Intigriti.
 <br>
