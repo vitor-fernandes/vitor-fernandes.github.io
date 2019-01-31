@@ -5,7 +5,7 @@ date:   2019-02-01 04:13:00
 categories: All
 img: banner.png
 ---
-
+<p align="justify">
 Olá, me chamo Vitor Fernandes a.k.a rapt00r, sou graduando em sistemas de informação pela UFPB e atualmente estou no 6º período do curso (01/2019). Faço parte de um grupo de estudos que criei com mais 3 amigos dentro da universidade, o Ethicalhackers UFPB, discutimos temas sobre Ethical Hacking (really?? :O), Linux, Programação, Segurança da Informação e afins. O link para a página do grupo está no rodapé do blog, curte lá que ajuda bastante :)
 <br>
 <br>
@@ -145,3 +145,4 @@ Para finalizar quero deixar claro que nenhum dado foi vazado ou repassado para o
 <br>
 <br>
 <b>Como prometido, o relatório poderá ser baixado através do link: <a href="https://drive.google.com/file/d/1ZpQX8tLkupvU4Q7m4qSvbTTjK2e00rAp/view?usp=sharing" target="_blank">Sigaa - Relatório Completo</a></>
+</p>
