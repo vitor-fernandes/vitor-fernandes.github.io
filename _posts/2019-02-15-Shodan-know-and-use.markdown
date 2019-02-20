@@ -27,6 +27,8 @@ Mas agora, estou conhecendo o poder real do Shodan e quero que você conheça ta
 <h3>Como o Shodan Funciona?</h3>
 Você pode controlar e filtar os resultados no Shodan, procurar por produtos específicos, países, portas, IPs, organizações e etc.
 <br>
+</p>
+<p align="justify">
 O Shodan funciona por meio de alguns comandos chamados de "Dorks". Iremos ver alguns exemplos agora:
 <ul>
     <li>product: -> Retorna apenas resultados que sejam do produto especificado. Exemplo: product:MongoDB</li>
@@ -49,10 +51,9 @@ O Shodan funciona por meio de alguns comandos chamados de "Dorks". Iremos ver al
 Depois de ter criado a conta e ter efetuado o login, vamos usar o Shodan para que você entenda sua interface, seu funcionamento e os resultados mostrados.
 <br>
 <br>
-A Dork que iremos utilizar será a <i>product</i>:
+A Dork que iremos utilizar será a <b><i>product</i></b>:
 <br>
 <img src="/images/shodan/shodan00.png"/>
-<br>
 <br>
 </p>
 <p align="justify">
@@ -92,7 +93,6 @@ O campo <b>Top Versions</b> mostra o ranking das versões mais utilizadas do pro
 Podemos observar várias informações a respeito dos Hosts retornados pelo Shodan.
 <br>
 <img src="/images/shodan/shodan07.png"/>
-<br>
 <br>
 </p>
 <p align="justify">
