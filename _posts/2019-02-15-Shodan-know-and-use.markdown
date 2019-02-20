@@ -13,7 +13,7 @@ Irei escrever mais artigos sobre minhas pesquisas com o Shodan no futuro. Então
 
 <p align="justify">
 <h3>Primeiramente, o que é ou quem é o Shodan???</h3>
-"Shodan is the world's first search engine for Internet-connected devices." - <a href="https://www.shodan.io/" target="_blank">Shodan</a>.
+"Shodan is the world's first search engine for Internet-connected devices." - <a href="https://www.shodan.io/" target="_blank" style="color: #0072C6;text-decoration: none">Shodan.io</a>.
 <br>
 </p>
 <p align="justify">
