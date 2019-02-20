@@ -53,6 +53,9 @@ A Dork que iremos utilizar será a <i>product</i>:
 <br>
 <img src="/images/shodan/shodan00.png"/>
 <br>
+<br>
+</p>
+<p align="justify">
 Como você pode ver, o Shodan nos trás uma página com vários resultados e campos que serão estudados no decorrer deste artigo.
 <br>
 <br>
