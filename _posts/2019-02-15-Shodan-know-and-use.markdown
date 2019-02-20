@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Shodan - Conhecendo e Usando"
+title:  "Shodan - Conhecendo e Utilizando - PARTE 01"
 date:   2019-02-15 11:08:00
 categories: All
 img: shodan.jpg
@@ -13,6 +13,8 @@ Irei escrever mais artigos sobre minhas pesquisas com o Shodan no futuro. Então
 <p align="justify">
 <h3>Primeiramente, o que é ou quem é o Shodan???</h3>
 "Shodan is the world's first search engine for Internet-connected devices." - <a href="https://www.shodan.io/" target="_blank">Shodan</a>.
+<br>
+<br>
 Ou seja, o Shodan é um motor de busca para encontrar dispositivos conectados à internet, como dispositivos IoT, servidores web, organizações e até mesmo usinas. 
 Tempos atrás eu acreditava que o Shodan era apenas um motor de busca qualquer como qualquer outro, e não conhecia o seu verdadeiro poder!!! Eu usava apenas "for Lulz" ou seja, para diversão, como ver webcams, câmeras de segurança de empresas etc.
 Mas agora, estou conhecendo o poder real do Shodan e quero que você conheça também.
@@ -32,16 +34,17 @@ O Shodan funciona por meio de alguns comandos chamados de "Dorks". Iremos ver al
     <li>NOT -> Este operador lógico possui a mesma função do operador anterior. Example: NOT authentication</li>
     <li>etc etc</li>
 </ul>
-</br>
+<br>
 Então, você pode controlar e filtar os resultados no Shodan, procurar por produtos específicos, países, portas, IPs, organizações e etc.
 </p>
 
 <p align="justify">
 <h3>Como usar o Shodan?</h3>
-!!! Primeiro, você deve criar uma conta !!!
-
+<b>!!! Primeiro, você deve criar uma conta !!!</b>
+<br>
+<br>
 Depois de ter criado a conta e ter efetuado o login, vamos usar o Shodan para que você entenda sua interface, seu funcionamento e os resultados mostrados.
-</br>
+<br>
 A primeira Dork que iremos utilizar será a <i>product</i>:
 </p>
-<img src="./shodan/shodan00.png"/>
+<img src="images/shodan/shodan00.png"/>
