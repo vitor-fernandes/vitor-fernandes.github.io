@@ -32,34 +32,33 @@ O Shodan funciona por meio de alguns comandos chamados de "Dorks". Iremos ver al
 </p>
 <ul>
     <p align="justify">
-    <li><b>product:</b> -> Retorna apenas resultados que sejam do produto especificado. Exemplo: product:MongoDB</li>
+        <li><b>product:</b> -> Retorna apenas resultados que sejam do produto especificado. Exemplo: <b><i>product:MongoDB</b></i></li>
     </p>
     <p align="justify">
-    <li><b>country:</b> -> Retorna apenas resultados que façam parte do país que você definiu. Exemplo: country:br</li>
+        <li><b>country:</b> -> Retorna apenas resultados que façam parte do país que você definiu. Exemplo: <b><i>country:br</b></i></li>
     </p>
     <p align="justify">
-    <li><b>net:</b> -> Retorna apenas resultados que façam parte de uma rede. Exemplo: net:192.168.0.1/24 </li>
+        <li><b>net:</b> -> Retorna apenas resultados que façam parte de uma rede. Exemplo: <b><i>net:192.168.0.1/24</b></i> </li>
     </p>
     <p align="justify">
-    <li><b>port:</b> -> Retorna apenas resultados que possuam serviços rodando na porta definida. Exemplo: port:27017</li>
+        <li><b>port:</b> -> Retorna apenas resultados que possuam serviços rodando na porta definida. Exemplo: <b><i>port:27017</b></i></li>
     </p>
     <p align="justify">
-    <li><b>org:</b> -> Retorna apenas resultados que façam parte de determinada organização. Exemplo: org:Google</li>
+        <li><b>org:</b> -> Retorna apenas resultados que façam parte de determinada organização. Exemplo: <b><i>org:Google</b></i></li>
     </p>
     <p align="justify">
-    <li><b>city:</b> -> Retorna apenas resultado que façam parte de determinada cidade. Exemplo: city:</li>
+        <li><b>city:</b> -> Retorna apenas resultado que façam parte de determinada cidade. Exemplo: <b><i>city:"João Pessoa"</b></i></li>
     </p>
     <p align="justify">
-    <li><b>-</b> -> Este é um operador lógico que remove resultados que contenham determinada palavra. Exemplo: -authentication</li>
+        <li><b>-</b> -> Este é um operador lógico que remove resultados que contenham determinada palavra. Exemplo: <b><i>-authentication</b></i></li>
     </p>
     <p align="justify">
-    <li><b>NOT</b> -> Este operador lógico possui a mesma função do operador anterior. Example: NOT authentication</li>
+        <li><b>NOT</b> -> Este operador lógico possui a mesma função do operador anterior. Example: <b><i>NOT authentication</b></i></li>
     </p>
     <p align="justify">
     <li>etc etc</li>
     </p>
 </ul>
-</p>
 
 <p align="justify">
 <h3>Como usar o Shodan?</h3>
