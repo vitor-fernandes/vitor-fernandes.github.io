@@ -6,7 +6,8 @@ categories: All
 img: shodan.jpg
 ---
 <p align="justify">
-Nesse post irei falar um pouco sobre o Shodan para te ajudar a entender um pouco mais sobre ele e também para que você possa utilizar futuramente nos seus pentests, em programas de Bug Bounty etc.
+Nesse post irei falar um pouco sobre o motor de busca Shodan para te ajudar a entender um pouco mais sobre ele e também para que você possa utilizar futuramente nos seus pentests, em programas de Bug Bounty etc.
+<br>
 Irei escrever mais artigos sobre minhas pesquisas com o Shodan no futuro. Então conheça, aprenda e use o Shodan a partir de hoje!
 </p>
 
@@ -15,13 +16,17 @@ Irei escrever mais artigos sobre minhas pesquisas com o Shodan no futuro. Então
 "Shodan is the world's first search engine for Internet-connected devices." - <a href="https://www.shodan.io/" target="_blank">Shodan</a>.
 <br>
 <br>
+</p>
+<p align="justify">
 Ou seja, o Shodan é um motor de busca para encontrar dispositivos conectados à internet, como dispositivos IoT, servidores web, organizações e até mesmo usinas. 
-Tempos atrás eu acreditava que o Shodan era apenas um motor de busca qualquer como qualquer outro, e não conhecia o seu verdadeiro poder!!! Eu usava apenas "for Lulz" ou seja, para diversão, como ver webcams, câmeras de segurança de empresas etc.
+Tempos atrás eu acreditava que o Shodan era apenas um motor de busca qualquer como os demais, e não conhecia o seu verdadeiro poder!!! Eu usava apenas "for Lulz" ou seja, para diversão, como ver webcams, câmeras de segurança de empresas etc.
 Mas agora, estou conhecendo o poder real do Shodan e quero que você conheça também.
 </p>
 
 <p align="justify">
 <h3>Como o Shodan Funciona?</h3>
+Você pode controlar e filtar os resultados no Shodan, procurar por produtos específicos, países, portas, IPs, organizações e etc.
+<br>
 O Shodan funciona por meio de alguns comandos chamados de "Dorks". Iremos ver alguns exemplos agora:
 <ul>
     <li>product: -> Retorna apenas resultados que sejam do produto especificado. Exemplo: product:MongoDB</li>
@@ -34,8 +39,6 @@ O Shodan funciona por meio de alguns comandos chamados de "Dorks". Iremos ver al
     <li>NOT -> Este operador lógico possui a mesma função do operador anterior. Example: NOT authentication</li>
     <li>etc etc</li>
 </ul>
-<br>
-Então, você pode controlar e filtar os resultados no Shodan, procurar por produtos específicos, países, portas, IPs, organizações e etc.
 </p>
 
 <p align="justify">
@@ -46,7 +49,7 @@ Então, você pode controlar e filtar os resultados no Shodan, procurar por prod
 Depois de ter criado a conta e ter efetuado o login, vamos usar o Shodan para que você entenda sua interface, seu funcionamento e os resultados mostrados.
 <br>
 <br>
-A primeira Dork que iremos utilizar será a <i>product</i>:
+A Dork que iremos utilizar será a <i>product</i>:
 <br>
 <img src="/images/shodan/shodan00.png"/>
 <br>
@@ -83,5 +86,23 @@ O campo <b>Top Versions</b> mostra o ranking das versões mais utilizadas do pro
 <img src="/images/shodan/shodan06.png"/>
 <br>
 <br>
+Podemos observar várias informações a respeito dos Hosts retornados pelo Shodan.
+<br>
+<img src="/images/shodan/shodan07.png"/>
+<br>
+<br>
+Começando pelo Título, é possível notar que o título do Host está definido como <b><i>302 Found</i></b>
+<br>
+Logo abaixo, é possível identificar qual o IP do Server: <b><i>128.90.143.82</i></b>
+<br>
+Identificamos também qual o hostname: <b><i>undefined.hostname.localhost</i></b>
+<br>
+A organização que o host pertence (Pode ser tanto o dono do host, como um serviço de hospedagem): <b><i>Powerhouse Management</i></b>
+<br>
+A data que o server foi adicionado ao Shodan: <b><i>2019-02-20 03:07:48 GMT</i></b>
+<br>
+A cidade e país onde o host está hospedado: <b><i>Paris - França</i></b>
+<br>
+E por fim, o corpo da resposta retornada pelo host.
 </p>
 
