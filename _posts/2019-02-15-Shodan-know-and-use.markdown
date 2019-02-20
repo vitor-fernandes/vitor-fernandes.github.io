@@ -57,5 +57,12 @@ O campo <b>Total Results</b> mostra o número total de resultados que foram enco
 <br>
 <img src="/images/shodan/shodan01.png"/>
 <br>
+<br>
+O campo <b>Top Countries<b> mostra os países com mais resultados presentes da busca:
+<br>
+<img src="/images/shodan/shodan02.png"/>
+<br>
+<br>
+
 </p>
 
