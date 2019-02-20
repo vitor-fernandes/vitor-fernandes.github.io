@@ -91,6 +91,8 @@ Podemos observar várias informações a respeito dos Hosts retornados pelo Shod
 <img src="/images/shodan/shodan07.png"/>
 <br>
 <br>
+</p>
+<p align="justify">
 Começando pelo Título, é possível notar que o título do Host está definido como <b><i>302 Found</i></b>
 <br>
 Logo abaixo, é possível identificar qual o IP do Server: <b><i>128.90.143.82</i></b>
