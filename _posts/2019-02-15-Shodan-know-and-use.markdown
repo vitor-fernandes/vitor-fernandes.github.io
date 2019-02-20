@@ -58,11 +58,30 @@ O campo <b>Total Results</b> mostra o número total de resultados que foram enco
 <img src="/images/shodan/shodan01.png"/>
 <br>
 <br>
-O campo <b>Top Countries<b> mostra os países com mais resultados presentes da busca:
+O campo <b>Top Countries</b> mostra o ranking dos países com mais resultados presentes da busca:
 <br>
 <img src="/images/shodan/shodan02.png"/>
 <br>
 <br>
-
+O campo <b>Top Services</b> mostra o ranking dos serviços mais utilizados de acordo com a busca:
+<br>
+<img src="/images/shodan/shodan03.png"/>
+<br>
+<br>
+O campo <b>Top Organization</b> mostra o ranking das organizações que mais utilizam o produto pesquisado:
+<br>
+<img src="/images/shodan/shodan04.png"/>
+<br>
+<br>
+O campo <b>Top Operation Systems</b> mostra o ranking com os sistemas mais utilizados de acordo com a busca:
+<br>
+<img src="/images/shodan/shodan05.png"/>
+<br>
+<br>
+O campo <b>Top Versions</b> mostra o ranking das versões mais utilizadas do produto buscado:
+<br>
+<img src="/images/shodan/shodan06.png"/>
+<br>
+<br>
 </p>
 
