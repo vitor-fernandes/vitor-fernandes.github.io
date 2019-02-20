@@ -15,7 +15,6 @@ Irei escrever mais artigos sobre minhas pesquisas com o Shodan no futuro. Então
 <h3>Primeiramente, o que é ou quem é o Shodan???</h3>
 "Shodan is the world's first search engine for Internet-connected devices." - <a href="https://www.shodan.io/" target="_blank">Shodan</a>.
 <br>
-<br>
 </p>
 <p align="justify">
 Ou seja, o Shodan é um motor de busca para encontrar dispositivos conectados à internet, como dispositivos IoT, servidores web, organizações e até mesmo usinas. 
@@ -30,16 +29,35 @@ Você pode controlar e filtar os resultados no Shodan, procurar por produtos esp
 </p>
 <p align="justify">
 O Shodan funciona por meio de alguns comandos chamados de "Dorks". Iremos ver alguns exemplos agora:
+</p>
 <ul>
-    <li>product: -> Retorna apenas resultados que sejam do produto especificado. Exemplo: product:MongoDB</li>
-    <li>country: -> Retorna apenas resultados que façam parte do país que você definiu. Exemplo: country:br</li>
-    <li>net: -> Retorna apenas resultados que façam parte de uma rede. Exemplo: net:192.168.0.1/24 </li>
-    <li>port: -> Retorna apenas resultados que possuam serviços rodando na porta definida. Exemplo: port:27017</li>
-    <li>org: -> Retorna apenas resultados que façam parte de determinada organização. Exemplo: org:Google</li>
-    <li>city: -> Retorna apenas resultado que façam parte de determinada cidade. Exemplo: city:</li>
-    <li>- -> Este é um operador lógico que remove resultados que contenham determinada palavra. Exemplo: -authentication</li>
-    <li>NOT -> Este operador lógico possui a mesma função do operador anterior. Example: NOT authentication</li>
+    <p align="justify">
+    <li><b>product:</b> -> Retorna apenas resultados que sejam do produto especificado. Exemplo: product:MongoDB</li>
+    </p>
+    <p align="justify">
+    <li><b>country:</b> -> Retorna apenas resultados que façam parte do país que você definiu. Exemplo: country:br</li>
+    </p>
+    <p align="justify">
+    <li><b>net:</b> -> Retorna apenas resultados que façam parte de uma rede. Exemplo: net:192.168.0.1/24 </li>
+    </p>
+    <p align="justify">
+    <li><b>port:</b> -> Retorna apenas resultados que possuam serviços rodando na porta definida. Exemplo: port:27017</li>
+    </p>
+    <p align="justify">
+    <li><b>org:</b> -> Retorna apenas resultados que façam parte de determinada organização. Exemplo: org:Google</li>
+    </p>
+    <p align="justify">
+    <li><b>city:</b> -> Retorna apenas resultado que façam parte de determinada cidade. Exemplo: city:</li>
+    </p>
+    <p align="justify">
+    <li><b>-</b> -> Este é um operador lógico que remove resultados que contenham determinada palavra. Exemplo: -authentication</li>
+    </p>
+    <p align="justify">
+    <li><b>NOT</b> -> Este operador lógico possui a mesma função do operador anterior. Example: NOT authentication</li>
+    </p>
+    <p align="justify">
     <li>etc etc</li>
+    </p>
 </ul>
 </p>
 
