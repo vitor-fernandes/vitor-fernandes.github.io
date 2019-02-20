@@ -46,5 +46,13 @@ Então, você pode controlar e filtar os resultados no Shodan, procurar por prod
 Depois de ter criado a conta e ter efetuado o login, vamos usar o Shodan para que você entenda sua interface, seu funcionamento e os resultados mostrados.
 <br>
 A primeira Dork que iremos utilizar será a <i>product</i>:
+<img src="/images/shodan/shodan00.png"/>
+<br>
+Como você pode ver, o Shodan nos trás uma página com vários resultados e campos que serão estudados no decorrer deste artigo.
+<br>
+<br>
+O campo <b>Total Results</b> mostra o número total de resultados que foram encontrados pelo Shodan, como você pode notar, foram encontrados 15,196,574 resultados relacionados ao item pesquisado, neste caso <i>product: Nginx</i>:
+<img src="/images/shodan/shodan01.png"/>
+<br>
 </p>
-<img src="images/shodan/shodan00.png"/>
+
