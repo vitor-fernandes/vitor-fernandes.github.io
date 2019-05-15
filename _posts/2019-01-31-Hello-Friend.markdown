@@ -9,19 +9,19 @@ img: mr_robot.png
 <b>Hello Friend!!!</b>
 <br>
 <br>
-Welcome to my personal blog, I'll try repass my knowledge about Hacking and Information Security to all people that have interest.
+Bem-vindo ao meu blog pessoal, tentarei repassar meus conhecimentos sobre Hacking e Segurança da Informação à todos os interessados pelo assunto :).
 <br>
 <br>
-My name is Vitor Fernandes a.k.a "rapt00r" and I'm from a little city called Teixeira on state of Paraiba in Brazil, and I have a lot of dreams. Some their its: be a greater Bug Hunter, work with Information Security on a great organization, talk in Hacking events and a lot of another dreams. I'm in this area since 2015, and every day I'm having more love for this. It's very funny and hard :)
+Meu nome é Vitor Fernandes a.k.a “rapt00r” e sou de uma pequena cidade chamada Teixeira, no estado da Paraíba, e tenho muitos sonhos. Alguns deles são: ser um grande Bug Hunter (Caçador de Bugs :O), trabalhar com segurança da informação, palestrar em eventos de Hacking e Tecnologia e vários outros. Estou nessa área desde 2015 e todos os dias ganho mais gosto por isso. É muito divertido e difícil :)
 <br>
 <br>
-My interests are in: Web Application Security, Penetration Testing, Bug Bounty and Code Review.
+Tenho interesse na área de Segurança da Informação em geral, mas as que mais me dedico são: Segurança de Aplicações Web, Bug Bounty, Teste de Invasão e Revisão de Código.
 <br>
 <br>
-I'm a newbie Bug Hunter and search bugs in some plataforms such as Hackerone, Bugcrowd and Intigriti.
+Sou um Bug Hunter novato e procuro por bugs em algumas plataformas, como Hackerone, Bugcrowd e Intigriti (atualmente estou focado mais no Bugcrowd :)).
 <br>
 <br>
-You can find my perfil here:
+Você pode encontrar meus perfis aqui:
 <br>
 <br>
 <a href="https://hackerone.com/rapt00r" target="_blank">Hackerone</a>
@@ -31,10 +31,10 @@ You can find my perfil here:
 <a href="https://www.intigriti.com/public/profile/rapt00r" target="_blank">Intigriti</a>
 <br>
 <br>
-Today, I'm study with my personal line of knowledge and I'm making my own researches. I'll bring to my blog all my finds, researches, study lines, tips and a lot of another things to help you!!
+Atualmente, desenvolvo minha própria linha de pesquisa para estudo e com isso, realizo minhas próprias pesquisas. Vou trazer para este blog todos os meus achados, pesquisas, linhas de estudo, dicas e muitas outras coisas para ajudar quem está começando e quem já possui um certo conhecimento na área !!
 <br>
 <br>
-If you liked my blog, please share to another people to their know him too. :)
+Se você gostar do meu blog, por favor, compartilhe com outras pessoas para conhecê-lo também. :)
 <br>
 <br>
-Don't forget, Hack all the things!!
+Não se esqueça, Hack All The Things !!
