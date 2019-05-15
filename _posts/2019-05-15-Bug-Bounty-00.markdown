@@ -74,13 +74,9 @@ Abaixo há a PoC da vulnerabilidade:
 <iframe width="560" height="315" src="https://www.youtube.com/embed/wHWfAo76xMY" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 </p>
 
-<br>
-
 <p align="justify">
 Quero agradecer ao <a href="https://twitter.com/K33r0k" target="_blank">K33r0k</a> por ter me ajudado a entender mais sobre CSRF :)
 </p>
-
-<br>
 
 <p align="justify">
 Bom galera, espero que eu tenha passado de forma clara essa resolução da vulnerabilidade encontrada no docker, como já disse ela foi corrigida, já fui recompensado e também fui permitido de realizar o disclosure.
