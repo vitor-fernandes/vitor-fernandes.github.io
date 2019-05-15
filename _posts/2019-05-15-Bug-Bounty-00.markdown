@@ -75,7 +75,7 @@ Abaixo há a PoC da vulnerabilidade:
 </p>
 
 <p align="justify">
-Quero agradecer ao <a href="https://twitter.com/K33r0k" target="_blank">K33r0k</a> por ter me ajudado a entender mais sobre CSRF :)
+Quero agradecer ao <a href="https://twitter.com/K33r0k" target="_blank"><b>k33r0k</b></a> por ter me ajudado a desenrolar a chain com as vulnerabilidades :)
 </p>
 
 <p align="justify">
