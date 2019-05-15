@@ -6,7 +6,7 @@ categories: All
 img: bug_bounty.png
 ---
 <p align="justify">
-Fala galera, neste post irei falar sobre uma vulnerabilidade que encontrei no Docker Cloud (<a href="https://cloud.docker.com/" target="_blank">Docker Cloud</a>). Esta falha já foi corrigida e tive permissão de falar sobre ela citando o vendor, então vamos la :)
+Fala galera, neste post irei falar sobre uma vulnerabilidade que encontrei no <a href="https://cloud.docker.com/" target="_blank">Docker Cloud</a>. Esta falha já foi corrigida e tive permissão de falar sobre ela citando o <i>Vendor</i>, então vamos lá :)
 </p>
 
 <p align="justify">
@@ -21,7 +21,7 @@ Decidi então inserir uma tag de imagem com um evento Javascript:
 <br>
 <code>&lt;img src="x" onerror="alert(document.domain)"/&gt;</code>
 <br>
-salvei e quando a descição foi atualizada, boooommm :)
+após salvar a descrição e atualizar, boooommm :)
 <br>
 <img src="/images/bug_bounty/bb00-00.png"/>
 </p>
