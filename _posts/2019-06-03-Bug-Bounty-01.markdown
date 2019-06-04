@@ -10,21 +10,22 @@ Fala galera, neste post irei falar sobre uma vulnerabilidade que encontrei em um
 </p>
 
 <p align="justify">
-A aplicação permite que você crie uma instância e adicione vários tipos de funcionalidades, como alertas, serviços, usuários, times etc.
+No vendor, havia uma aplicação que permite você possa criar uma instância e adicionar vários tipos de funcionalidades, como alertas, serviços, usuários, times etc.
 <br>
-Ao criar um serviço, é necessário que você aloque um time para que eles fiquem encarregados de cuidar deste serviço criado. Dentro de um serviço, era possível adicionar ações específicas para que cada usuário fosse capaz de executar ao realizar determinada tarefa.
+Ao criar um serviço, é necessário que você aloque um time para que eles fiquem encarregados de cuidar deste serviço. Dentro de um serviço, era possível adicionar ações customizadas para que cada usuário fosse capaz de executar ao realizar determinada tarefa.
 </p>
 
 <p align="justify">
 Nessas ações, verifiquei que ao executá-la um pop-up era aberto com o nome da ação executada, ou seja, o nome da ação era refletido nesse pop-up.
 <br>
-Decidi então adicionar uma tag HTML e um evento JS simples, inseri <code>&lt;img src="x" onerror="alert(1)"/&gt;</code>, e ao clicar na ação maliciosa, o nome foi refletido novamente, sem nenhum tipo de filtro, e o alerta "subiu" :) (opaaaaa)
+Decidi então adicionar uma tag HTML e um evento JS simples, inseri <code>&lt;img src="x" onerror="alert(1)"/&gt;</code>, e ao clicar na ação maliciosa, o nome foi refletido novamente, sem nenhum tipo de filtro, e o alerta apareceu :) (opaaaaa)
 <br>
 <img src="/images/bug_bounty/bb01/bb01-00.png"/>
 <br>
 <img src="/images/bug_bounty/bb01/bb01-01.png"/>
 <br>
-Bom, neste ponto, eu já tinha um XSS Stored. Vi como funcionava a aplicação, e notei que havia como um usuário fazer a troca do email, então tive a sacada, eu poderia utilizar de um CSRF junto com o XSS para realizar o Account Takeover.
+<br>
+Bom, neste ponto, eu já tinha um XSS Stored. Dei uma olhada de como funcionava a aplicação, e notei que havia como um usuário fazer a troca do email, então tive uma sacada... eu poderia utilizar de um CSRF junto com o XSS para realizar o Account Takeover.
 </p>
 
 <p align="justify">
@@ -38,7 +39,11 @@ Utilizei o seguinte código para carregar o exploit quando o usuário executar a
 <br>
 <img src="/images/bug_bounty/bb01/bb01-02.png">
 <br>
+<br>
+As ações disponíveis para os usuários ficariam dessa forma:
+<br>
 <img src="/images/bug_bounty/bb01/bb01-03.png">
+<br>
 <br>
 Com isso, ao executar a ação maliciosa no serviço, o pop-up seria mostrado e o código executado.
 </p>
@@ -46,12 +51,11 @@ Com isso, ao executar a ação maliciosa no serviço, o pop-up seria mostrado e 
 <p align="justify">
 Mas.... Para realizar a requisição, era necessário que fosse enviado junto da request, o token CSRF e o ID do usuário. Depois de fuçar um pouco a aplicação, notei que eles estavam sendo armazenados no localStorage (this is very good :) ), então tive apenas que capturar eles via JS e enviá-los juntos da requisição POST.
 <br>
-<img src="/images/bug_bounty/bb01/bb01-00.png"/>
+<img src="/images/bug_bounty/bb01/bb01-08.png"/>
 </p>
 
 <p align="justify">
 Depois de realizar todo o processo, era necessário apenas adicionar as vítimas ao time, e atribuir um serviço com uma ação maliciosa a esse time, vale lembrar que não era necessário que as vítimas tivessem contas já criadas, pois o sistema verificava e caso não houvesse, era criado uma nova conta.
-<br>
 <br>
 </p>
 
@@ -86,9 +90,10 @@ Como resultado, o email da vítima foi trocado:
 <br>
 Um link de confirmação foi enviado para o email do atacante, e ao confirmar o novo email, a conta da vítima teria o seu email trocado:
 <br>
-<img src="/images/bug_bounty/bb01/bb01-09.png">
+<img src="/images/bug_bounty/bb01/bb01-07.png">
 <br>
-Infelizmente, não posso divulgar o vídeo da PoC, pois como foi dito no início, o vendor não autorizou que fosse divulgado a vulnerabilidade.
+<br>
+Infelizmente, não posso divulgar o vídeo da PoC, pois como foi dito no início, o vendor não autorizou que fosse divulgado a vulnerabilidade e tentei ao máximo deixar o mesmo mais anônimo possível :).
 </p>
 
 <p align="justify">
