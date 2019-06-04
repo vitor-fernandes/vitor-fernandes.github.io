@@ -23,7 +23,7 @@ Decidi então inserir uma tag de imagem com um evento Javascript:
 <br>
 após salvar a descrição e atualizar, boooommm :)
 <br>
-<img src="/images/bug_bounty/bb00-00.png"/>
+<img src="/images/bug_bounty/bb00/bb00-00.png"/>
 </p>
 
 <p align="justify">
