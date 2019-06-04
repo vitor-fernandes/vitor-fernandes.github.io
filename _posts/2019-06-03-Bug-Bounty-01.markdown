@@ -18,9 +18,12 @@ Ao criar um serviço, é necessário que você aloque um time para que eles fiqu
 <p align="justify">
 Nessas ações, verifiquei que ao executá-la um pop-up era aberto com o nome da ação executada, ou seja, o nome da ação era refletido nesse pop-up.
 <br>
-Decidi então adicionar uma tag HTML e um evento JS simples, inseri <code>&lt;img src="x" onerror="alert(1)"/&gt;</code>, e ao clicar na ação maliciosa, o nome foi refletido novamente, sem nenhum tipo de filtro, e o alerta apareceu :) (opaaaaa)
+Decidi então adicionar uma tag HTML e um evento JS simples, inseri <code>&lt;img src="x" onerror="alert(1)"/&gt;</code>, e ao clicar na ação maliciosa, o nome foi refletido novamente, sem nenhum tipo de filtro:
 <br>
 <img src="/images/bug_bounty/bb01/bb01-00.png"/>
+<br>
+<br>
+e o alerta apareceu :) (IEEEERRRRRRRRR)
 <br>
 <img src="/images/bug_bounty/bb01/bb01-01.png"/>
 <br>
