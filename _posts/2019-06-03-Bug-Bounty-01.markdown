@@ -32,7 +32,7 @@ Bom, neste ponto, eu já tinha um XSS Stored. Dei uma olhada de como funcionava 
 </p>
 
 <p align="justify">
-Basicamente, o CSRF consistia em uma request POST simples para o endpoint que realizava a troca do email, decidi criar um arquivo javascript com o exploit (ele está disponível no meu github, vou deixar o link no final do report :) ) para que não ficasse muito código dentro do campo da ação.
+Basicamente, o CSRF consistia em uma request POST simples para o endpoint <code>/user/changeUsername</code> que realizava a troca do email, decidi criar um arquivo javascript com o exploit (ele está disponível no meu github, vou deixar o link no final do report :) ) para que não ficasse muito código dentro do campo da ação.
 <br>
 <br>
 Utilizei o seguinte código para carregar o exploit quando o usuário executar a ação maliciosa dentro do serviço:
