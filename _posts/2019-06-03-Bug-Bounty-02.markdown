@@ -1,0 +1,73 @@
+---
+layout: post
+title:  "Bug Bounty 01 - Account Takeover via IDOR"
+date:   2019-06-03 11:08:00
+categories: All
+img: bug_bounty.png
+---
+<p align="justify">
+Salve salve galera, hoje irei falar sobre uma vulnerabilidade que encontrei no programa de Bug Bounty da <a href="https://www.hackerearth.com/pt-br/" target="_blank">Hackerearth</a>. Esta vulnerabilidade já foi corrigida e vai ter video da PoC \o/, deixo também um aviso de que os emails utilizados para criação das contas (mostrados nos vídeos) são utilizados apenas para spam :)
+</p>
+
+<p align="justify">
+Bom, primeiramente, esta vulnerabilidade foi encontrada em um subdomínio do Hackerearth, então, para encontrá-lo utilizei o <a href="https://github.com/aboul3la/Sublist3r" target="_blank">Sublist3r</a> (futuramente irei trazer tutoriais de Recon :) ) e depois utilizei o <a href="https://github.com/guelfoweb/knock" target="_blank">Knockpy</a> para fazer a resolução dos subdomínios encontrados anteriormente.
+<br>
+Após finalizado a enumeração e a resolução dos subdomínios, fui procurando algum alvo para que eu começasse a realizar os testes. Foi aí que encontrei um que me chamou a atenção, ```movehack```.
+</p>
+
+<p align="justify">
+Notei que era possível realizar a criação de conta para acessar este sistema e decidi criar uma para navegar dentro da aplicação.
+<br>
+Ao criar uma conta, é necessário apenas que seja fornecido um endereço de email, pois um link será enviado para o mesmo e a senha é definida por meio deste link (redireciona para uma página de criação de senha).
+</p>
+
+<p align="justify">
+Ao entrar na página de definição de senha, utilizei o <a href="https://portswigger.net/burp" target="_blank">Burp Suite</a> para interceptar a request que era feita, e foi aí que vi algo um pouco estranho...
+<br>
+No corpo da request, havia além das senhas digitadas, o meu endereço de email, algo como:
+<br>
+```<b>email=conta1@gmail.com&password=1234567890:)&passwordConfirm=1234567890:)</b>```
+<br>
+<br>
+Decidi criar outra conta para tentar alguma coisa com 2 contas conhecidas, pois teria mais certeza caso algo acontecesse.
+</p>
+
+<p align="justify">
+Ao criar a conta e clicar no link de ativação enviado para o email, na página de definição de senhas coloquei o burp para interceptar as requests para que eu pudesse modificá-las. Então, ao interceptar a request, novamente a mesma requisição era feita:
+<br>
+```<b>email=conta2@gmail.com&password=1234567890:)&passwordConfirm=1234567890:)</b>```
+<br>
+<br>
+Fiz a requisição normalmente, e modifiquei o email do payload para o email da conta1, ficando da seguinte forma:
+<br>
+```<b>email=conta1@gmail.com&password=abcdefghjkl:)&passwordConfirm=abcdefghjkl:)</b>```
+<br>
+<br>
+E para minha surpresa, recebi a mensagem de confirmação que a senha foi definida com sucesso. 
+</p>
+
+<p align="justify">
+Até aí tudo bem, poderia haver uma verificação no lado do servidor que enviava só pro email e tal (meu pensamento na hora). 
+<br>
+Decidi então verficar se realmente houve a troca da senha da minha conta1, tentei logar com as credenciais da conta1 definidas na primeira request (conta1@gmail.com && 1234567890:)) e para minha surpresa, não funcionou (eu já estava me levantando da cadeira para comemorar)...
+<br>
+E para tirar a prova final, decidi logar na conta1 com a senha definida na 2 request (abcdefghjkl:)) e funcionou AOEIAOEAIEAOEIAEOAEIOAEIOAEI
+<br>
+Daí amigo, foi só gravar o vídeo da PoC, reportar pra eles e ser feliz :)
+</p>
+
+<p align="justify">
+Resumindo tudo que foi dito, para realizar o takeover (aquisição) da conta de outro usuário, era necessário que você conhecesse o email previamente da vítima (ainda sim vale né?!).
+<br>
+<br>
+Como prometido aqui está o vídeo da vulnerabilidade:
+<br>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/ABoFN_23Efw" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<br>
+</p>
+
+<p align="justify">
+Espero que tenham gostado galera, irei trazer mais posts futuramente, dá aquela compartilhada, manda um feedback pelo Twitter, Telegram etc no que posso mudar e tal :)
+<br>
+Valeuu!
+</p>
