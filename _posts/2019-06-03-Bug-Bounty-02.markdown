@@ -6,7 +6,7 @@ categories: All
 img: bug_bounty.png
 ---
 <p align="justify">
-Salve salve galera, hoje irei falar sobre uma vulnerabilidade que encontrei no programa de Bug Bounty da <a href="https://www.hackerearth.com/pt-br/" target="_blank">Hackerearth</a>. Esta vulnerabilidade já foi corrigida e vai ter video da PoC \o/, deixo também um aviso de que os emails utilizados para criação das contas (mostrados nos vídeos) são utilizados apenas para spam :)
+Salve salve galera, hoje irei falar sobre mais uma vulnerabilidade de Account Takeover que encontrei desta vez no programa de Bug Bounty da <a href="https://www.hackerearth.com/pt-br/" target="_blank">Hackerearth</a>. Esta vulnerabilidade já foi corrigida e vai ter video da PoC \o/, deixo também um aviso de que os emails utilizados para criação das contas (mostrados nos vídeos) são utilizados apenas para spam :)
 </p>
 
 <p align="justify">
