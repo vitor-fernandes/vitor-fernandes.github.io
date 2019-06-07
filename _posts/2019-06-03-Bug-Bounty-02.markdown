@@ -12,7 +12,7 @@ Salve salve galera, hoje irei falar sobre uma vulnerabilidade que encontrei no p
 <p align="justify">
 Bom, primeiramente, esta vulnerabilidade foi encontrada em um subdomínio do Hackerearth, então, para encontrá-lo utilizei o <a href="https://github.com/aboul3la/Sublist3r" target="_blank">Sublist3r</a> (futuramente irei trazer tutoriais de Recon :) ) e depois utilizei o <a href="https://github.com/guelfoweb/knock" target="_blank">Knockpy</a> para fazer a resolução dos subdomínios encontrados anteriormente.
 <br>
-Após finalizado a enumeração e a resolução dos subdomínios, fui procurando algum alvo para que eu começasse a realizar os testes. Foi aí que encontrei um que me chamou a atenção, ```movehack```.
+Após finalizado a enumeração e a resolução dos subdomínios, fui procurando algum alvo para que eu começasse a realizar os testes. Foi aí que encontrei um que me chamou a atenção, <code>movehack</code>.
 </p>
 
 <p align="justify">
@@ -26,7 +26,7 @@ Ao entrar na página de definição de senha, utilizei o <a href="https://portsw
 <br>
 No corpo da request, havia além das senhas digitadas, o meu endereço de email, algo como:
 <br>
-```<b>email=conta1@gmail.com&password=1234567890:)&passwordConfirm=1234567890:)</b>```
+<code><b>email=conta1@gmail.com&password=1234567890:)&passwordConfirm=1234567890:)</b></code>
 <br>
 <br>
 Decidi criar outra conta para tentar alguma coisa com 2 contas conhecidas, pois teria mais certeza caso algo acontecesse.
@@ -35,12 +35,12 @@ Decidi criar outra conta para tentar alguma coisa com 2 contas conhecidas, pois 
 <p align="justify">
 Ao criar a conta e clicar no link de ativação enviado para o email, na página de definição de senhas coloquei o burp para interceptar as requests para que eu pudesse modificá-las. Então, ao interceptar a request, novamente a mesma requisição era feita:
 <br>
-```<b>email=conta2@gmail.com&password=1234567890:)&passwordConfirm=1234567890:)</b>```
+<code><b>email=conta2@gmail.com&password=1234567890:)&passwordConfirm=1234567890:)</b></code>
 <br>
 <br>
 Fiz a requisição normalmente, e modifiquei o email do payload para o email da conta1, ficando da seguinte forma:
 <br>
-```<b>email=conta1@gmail.com&password=abcdefghjkl:)&passwordConfirm=abcdefghjkl:)</b>```
+<code><b>email=conta1@gmail.com&password=abcdefghjkl:)&passwordConfirm=abcdefghjkl:)</b></code>
 <br>
 <br>
 E para minha surpresa, recebi a mensagem de confirmação que a senha foi definida com sucesso. 
