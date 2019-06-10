@@ -24,6 +24,7 @@ Depois de pesquisar um pouco mais, notei que ao realizar uma busca por locais qu
 <br>
 <img src="/images/bug_bounty/bb03/bb03-01.png"/>
 <br>
+(O link refletido na imagem abaixo é um pouco diferente pois esqueci de tirar print no momento em que encontrei a vulnerabilidade :/ )
 <br>
 <img src="/images/bug_bounty/bb03/bb03-02.png"/>
 </p>
