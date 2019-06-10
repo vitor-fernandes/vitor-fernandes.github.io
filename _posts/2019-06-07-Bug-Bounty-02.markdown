@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Bug Bounty 02 - Account Takeover via IDOR"
-date:   2019-07-03 11:08:00
+date:   2019-06-07 11:08:00
 categories: All
 img: bug_bounty.png
 ---
