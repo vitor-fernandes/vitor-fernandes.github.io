@@ -6,15 +6,17 @@ categories: All
 img: cve_first_blood.png
 ---
 <p align="justify">
-Hello friendsons :). Depois de passar um tempo sem mexer aqui no blog, trago a vocês um post que irá falar sobre a minha primeira CVE \o/<br>
+Hello friendsons :)
+<br>
+&nbsp;Depois de passar um tempo sem mexer aqui no blog, trago a vocês um post que irá falar sobre a minha primeira CVE \o/<br>
 Pra quem não conhece, CVE é um acrônomo para <b>Common Vulnerabilities and Explosures</b> que nada mais é do que uma lista de entradas, cada uma contendo um número de identificação, descrição e pelo menos uma referência pública para vulnerabilidades de segurança publicamente conhecidas. [Thanks Mitre :)]
 <br>
 <br>
-Resumindo, CVE é um número que identifica uma vulnerabilidade expecífica, em um software específico.
+&nbsp;Resumindo, CVE é um número que identifica uma vulnerabilidade expecífica, em um software específico.
 </p>
 
 <p align="justify">
-Bom, para iniciar falarei um pouco sobre qual vulnerabilidade foi encontrada, qual o dispositivo afetado por ela e qual o vendor do dispositivo :)
+&nbsp;Bom, para iniciar falarei um pouco sobre qual vulnerabilidade foi encontrada, qual o dispositivo afetado por ela e qual o vendor do dispositivo :)
 </p>
 
 <p align="justify">
@@ -45,18 +47,22 @@ Mas, ao olhar as respostas das requisições pela aba Network do DevTools, vi qu
 <img src="../images/cves/cve-2019-15060/ls.png"/>
 
 <p align="justify">
+<br>
 Depois disso, tentei receber conexão reversa, mas não obtive sucesso... Mas a conexão era feita ao enviar como payload <code>"`telnet IP PORT`"</code>:
 <br>
 </p>
 <img src="../images/cves/cve-2019-15060/connect.png">
 
 <p align="justify">
+<br>
 <h2>Dispositivo</h2>
 <br>
 Como já falei, o dispositivo onde encontrei essa vulnerabilidade foi o Router TL-WR840N da TP-Link, o meu está com as seguintes configurações:
 <br>
-Versão de Firmware: 0.9.1 3.16 v004c. 1 Build 170912 Rel. 39609n<br>
-Versão de Hardware: TL-WR840N v4 00000004
+<br>
+<b>Versão de Firmware:</b> 0.9.1 3.16 v004c. 1 Build 170912 Rel. 39609n<br>
+<b>Versão de Hardware:</b> TL-WR840N v4 00000004
+<br>
 <br>
 Deixarei também uma imagem do mesmo :)
 <br>
