@@ -8,38 +8,46 @@ img: cve_first_blood.png
 <p align="justify">
 Hello friendsons :)
 <br>
-&nbsp;Depois de passar um tempo sem mexer aqui no blog, trago a vocês um post que irá falar sobre a minha primeira CVE \o/<br>
+<br>
+Depois de passar um tempo sem mexer aqui no blog, trago a vocês um post que irá falar sobre a minha primeira CVE \o/
+<br>
+<br>
 Pra quem não conhece, CVE é um acrônomo para <b>Common Vulnerabilities and Explosures</b> que nada mais é do que uma lista de entradas, cada uma contendo um número de identificação, descrição e pelo menos uma referência pública para vulnerabilidades de segurança publicamente conhecidas. [Thanks Mitre :)]
 <br>
 <br>
-&nbsp;Resumindo, CVE é um número que identifica uma vulnerabilidade expecífica, em um software específico.
+Resumindo, CVE é um número que identifica uma vulnerabilidade expecífica, em um software específico.
 </p>
 
 <p align="justify">
-&nbsp;Bom, para iniciar falarei um pouco sobre qual vulnerabilidade foi encontrada, qual o dispositivo afetado por ela e qual o vendor do dispositivo :)
+Bom, para iniciar falarei um pouco sobre qual vulnerabilidade foi encontrada, qual o dispositivo afetado por ela e qual o vendor do dispositivo :)
 </p>
 
 <p align="justify">
 Vulnerabilidade: <b>Authenticated Remote Code Execution</b><br>
-Dispositivo: <b>Router TL-WR840N</b>
+Dispositivo: <b>Router TL-WR840N</b><br>
 Vendor: <b>TP-Link</b>
 </p>
 
 <p align="justify">
 <h2>Vulnerabilidade</h2>
 <br>
-<br>
 A vulnerabilidade encontrada foi uma vulnerabilidade que me permitia executar comandos remotamente no roteador, mas para isso eu deveria estar autenticado na página web do router.
+<br>
 <br>
 Enquanto eu estava testando algumas funcionalidades do router (estava sem internet na hora :p), percebi que havia um menu que me chamou atenção: <i>Ferramentas de Sistema (ou coisa do tipo)</i> onde ela possui 2 funções em específico: <i>ping e traceroute</i>.
 <br>
+<br>
 Decidi testar primeiramente a função de ping em busca de chegar ao meu objetivo: <b>executar comandos dentro do roteador</b>. Fui enviando payloads e até então sem sucesso.
+<br>
 <br>
 Foi aí que decidi testar a função de traceroute... Comecei injetando alguns caracteres como: <code>' " &amp; | ; `</code> e sempre recebia erros (alguns desses erros eu só consegui entender posteriormente).
 <br>
+<br>
 Ao perceber que ao inserir " " eu não recebia erro, fui inserindo alguns comandos (ls, mkdir, whoami, $SHELL) e eu voltei a receber erros novamente.
 <br>
+<br>
 Ao juntar as <code> " " </code> com <code>` `</code> e algum comando (<code>"`ls -a`"</code>), ele realizava a requisição normalmente, não retornava erro e também não me retornava nada na interface do router...
+<br>
 <br>
 Mas, ao olhar as respostas das requisições pela aba Network do DevTools, vi que meu objetivo tinha sido realizado... OS COMANDOS ESTAVAM SENDO EXECUTADOS NO ROTEADOR:
 <br>
@@ -54,7 +62,6 @@ Depois disso, tentei receber conexão reversa, mas não obtive sucesso... Mas a 
 <img src="../images/cves/cve-2019-15060/connect.png">
 
 <p align="justify">
-<br>
 <h2>Dispositivo</h2>
 <br>
 Como já falei, o dispositivo onde encontrei essa vulnerabilidade foi o Router TL-WR840N da TP-Link, o meu está com as seguintes configurações:
@@ -64,13 +71,14 @@ Como já falei, o dispositivo onde encontrei essa vulnerabilidade foi o Router T
 <b>Versão de Hardware:</b> TL-WR840N v4 00000004
 <br>
 <br>
-Deixarei também uma imagem do mesmo :)
+Deixarei também uma imagem do nosso abiguinho :)
 <br>
 </p>
 <img src="../images/cves/cve-2019-15060/tl-wr840n.jpg">
 
 <p align="justify">
 Para encerrar, quero deixar claro que a TP-Link já foi reportada sobre a vulnerabilidade, foram bem atenciosos e rápidos para correção.
+<br>
 <br>
 Já estou com o novo Firmware e irei testar assim que possível.
 </p>
