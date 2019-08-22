@@ -9,7 +9,7 @@ img: cve_first_blood.png
 Hello friendsons :)
 <br>
 <br>
-Depois de passar um tempo sem mexer aqui no blog, trago a vocês um post que irá falar sobre a minha primeira CVE \o/
+Depois de passar um tempo sem mexer aqui no blog, trago a vocês um post que irá falar sobre a minha primeira CVE \o/, que possui o número <b><i>CVE-2019-15060</i></b>.
 <br>
 <br>
 Pra quem não conhece, CVE é um acrônomo para <b>Common Vulnerabilities and Explosures</b> que nada mais é do que uma lista de entradas, cada uma contendo um número de identificação, descrição e pelo menos uma referência pública para vulnerabilidades de segurança publicamente conhecidas. [Thanks Mitre :)]
