@@ -60,6 +60,15 @@ Depois disso, tentei receber conexão reversa, mas não obtive sucesso... Mas a 
 <br>
 </p>
 <img src="../images/cves/cve-2019-15060/connect.png">
+<br>
+<br>
+<p align="justify">
+<b>EDIT1:</b> <br>
+Irei deixar um vídeo de demonstração que gravei mostrando os 2 comandos falados anteriormente sendo executados.
+<br>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/6LhLHl3QEyE" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<br>
+</p>
 
 <p align="justify">
 <h2>Dispositivo</h2>
